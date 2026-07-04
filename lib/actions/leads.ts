@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
+import { inferNiche, type QuizAnswers } from "@/lib/quiz/profile";
 
 export interface LeadCaptureInput {
   name: string;
@@ -62,4 +63,50 @@ export async function submitLeadCapture(
   }
 
   return { ok: true, leadId };
+}
+
+export interface QuizSubmitInput {
+  leadId: string | null;
+  name: string;
+  phone: string;
+  email: string;
+  answers: QuizAnswers;
+}
+
+/**
+ * Espelha submitDirect (quiz.html): se ja existe leadId (veio do
+ * LeadModal), faz UPDATE na mesma linha; senao, INSERT novo. Nunca
+ * bloqueia o fluxo se o Supabase falhar -- mesma postura defensiva
+ * do original.
+ */
+export async function submitQuizAnswers(input: QuizSubmitInput): Promise<void> {
+  const supabase = await createClient();
+
+  const quizData = {
+    goal: input.answers.goal || null,
+    revenue: input.answers.revenue || null,
+    budget: input.answers.budget || null,
+    target: input.answers.target || null,
+    challenge: input.answers.challenge || null,
+    digital_level: input.answers.digital_level || null,
+    time: input.answers.time || null,
+    niche: inferNiche(input.answers),
+    status: "quiz_completed" as const,
+  };
+
+  try {
+    if (input.leadId) {
+      await supabase.from("quiz_leads").update(quizData).eq("id", input.leadId);
+    } else {
+      await supabase.from("quiz_leads").insert({
+        name: input.name,
+        phone: input.phone,
+        email: input.email,
+        source: "formulario-2.0/quiz",
+        ...quizData,
+      });
+    }
+  } catch (err) {
+    console.warn("submitQuizAnswers falhou:", err);
+  }
 }
