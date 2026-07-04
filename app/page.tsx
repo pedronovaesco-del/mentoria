@@ -6,6 +6,9 @@ import { PasSection } from "@/components/home/PasSection";
 import { ExpertSection } from "@/components/home/ExpertSection";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { StatsBar } from "@/components/home/StatsBar";
+import { ResultsMedia } from "@/components/home/ResultsMedia";
+import { StudentsGrid } from "@/components/home/StudentsGrid";
+import { ArthurCaseStudy } from "@/components/home/ArthurCaseStudy";
 
 export default function Home() {
   return (
@@ -18,6 +21,9 @@ export default function Home() {
         <ExpertSection />
         <HowItWorks />
         <StatsBar />
+        <ResultsMedia />
+        <StudentsGrid />
+        <ArthurCaseStudy />
       </main>
       <Footer />
     </>
