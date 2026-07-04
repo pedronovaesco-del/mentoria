@@ -25,6 +25,11 @@
   --prose-w: clamp(680px, 58vw, 820px);
   --fs-h1: clamp(36px, 6.5vw, 68px);
   --fs-h2: clamp(30px, 5vw, 52px);
+  --fs-body: 16px;
+  --lh-heading: 1.1;
+  --lh-body: 1.8;
+  --ls-h1: -2px;
+  --ls-h2: -2px;
 }
 
 @theme inline {
@@ -36,6 +41,7 @@
   --color-ink: var(--ink);
   --color-success: var(--success);
   --color-danger: var(--danger);
+  --color-body-color: var(--body-color);
 
   --font-sans: var(--font-inter);
   --font-grotesk: var(--font-space-grotesk);
@@ -136,4 +142,37 @@ body {
   background: var(--ink);
   color: #fff;
   -webkit-font-smoothing: antialiased;
+}
+
+.hl {
+  color: var(--blue-light);
+  font-weight: 700;
+}
+
+/* Efeito de emboss 3D usado nos títulos de destaque (hero, seções-chave) */
+.text-3d {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35),
+    0 2px 0 rgba(187, 212, 255, 0.28),
+    0 3px 0 rgba(59, 130, 246, 0.22),
+    0 4px 0 rgba(37, 99, 235, 0.2),
+    0 5px 0 rgba(26, 86, 255, 0.16),
+    0 6px 1px rgba(0, 0, 0, 0.25),
+    0 7px 6px rgba(0, 0, 0, 0.3);
+}
+.text-3d-gradient {
+  position: relative;
+  background: linear-gradient(
+    165deg,
+    var(--blue-light) 0%,
+    var(--blue) 30%,
+    var(--blue-mid) 60%,
+    var(--blue-deep) 80%,
+    var(--blue-dark) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 var(--blue-deep)) drop-shadow(0 2px 0 var(--blue-dark))
+    drop-shadow(0 3px 1px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 8px rgba(59, 130, 246, 0.25));
 }

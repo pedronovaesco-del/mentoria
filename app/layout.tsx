@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Space_Grotesk } from "next/font/google";
+import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
+import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,7 +43,11 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${inter.variable} ${playfair.variable} ${spaceGrotesk.variable}`}
     >
-      <body className="min-h-screen antialiased font-sans">{children}</body>
+      <body className="min-h-screen antialiased font-sans">
+        <AnimatedBackground />
+        <ScrollProgressBar />
+        {children}
+      </body>
     </html>
   );
 }

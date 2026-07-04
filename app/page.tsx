@@ -1,9 +1,19 @@
+import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/home/Hero";
+import { ProblemSection } from "@/components/home/ProblemSection";
+import { PasSection } from "@/components/home/PasSection";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="font-grotesk text-sm text-white/40">
-        Formulario 2.0 — infraestrutura pronta, home real vem no Marco 3.
-      </p>
-    </main>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <ProblemSection />
+        <PasSection />
+      </main>
+      <Footer />
+    </>
   );
 }
