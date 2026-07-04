@@ -9,6 +9,11 @@ import { StatsBar } from "@/components/home/StatsBar";
 import { ResultsMedia } from "@/components/home/ResultsMedia";
 import { StudentsGrid } from "@/components/home/StudentsGrid";
 import { ArthurCaseStudy } from "@/components/home/ArthurCaseStudy";
+import { WhatYouGet } from "@/components/home/WhatYouGet";
+import { ForWhoSection } from "@/components/home/ForWhoSection";
+import { GuaranteeSection } from "@/components/home/GuaranteeSection";
+import { VisionSection } from "@/components/home/VisionSection";
+import { CtaSection } from "@/components/home/CtaSection";
 
 export default function Home() {
   return (
@@ -24,6 +29,11 @@ export default function Home() {
         <ResultsMedia />
         <StudentsGrid />
         <ArthurCaseStudy />
+        <WhatYouGet />
+        <ForWhoSection />
+        <GuaranteeSection />
+        <VisionSection />
+        <CtaSection />
       </main>
       <Footer />
     </>
