@@ -157,7 +157,7 @@ export function QuizFlow() {
                         key={opt.value}
                         type="button"
                         onClick={() => pick(opt.value)}
-                        className={`flex w-full items-center gap-3.5 rounded-md border px-4.5 py-4 text-left font-grotesk text-[15px] font-medium transition-all duration-150 ${
+                        className={`flex w-full items-center gap-3.5 rounded-md border px-[18px] py-4 text-left font-grotesk text-[15px] font-medium transition-all duration-150 ${
                           selected
                             ? "border-blue/60 bg-blue/12 text-white"
                             : "border-white/9 bg-white/3 text-white/80 hover:border-blue/40 hover:bg-blue/7 hover:text-white"

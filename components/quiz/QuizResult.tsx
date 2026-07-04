@@ -32,7 +32,7 @@ export function QuizResult({ profile, summary }: { profile: Profile; summary: st
       >
         {profile.icon}
       </div>
-      <div className="mb-5 inline-flex items-center gap-2 rounded-pill border border-success/25 bg-success/10 px-4.5 py-2 text-[13px] font-bold text-[#34D399]">
+      <div className="mb-5 inline-flex items-center gap-2 rounded-pill border border-success/25 bg-success/10 px-[18px] py-2 text-[13px] font-bold text-[#34D399]">
         {profile.badge}
       </div>
       <h2
