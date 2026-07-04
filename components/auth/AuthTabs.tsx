@@ -22,7 +22,7 @@ export function AuthTabs() {
   const searchParams = useSearchParams();
   const supabase = createClient();
 
-  const [mode, setMode] = useState<Mode>("register");
+  const [mode, setMode] = useState<Mode>(() => (searchParams.get("mode") === "login" ? "login" : "register"));
   const [alert, setAlert] = useState<{ type: "error" | "success"; msg: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -36,10 +36,6 @@ export function AuthTabs() {
   const [lEmail, setLEmail] = useState("");
   const [lPass, setLPass] = useState("");
   const [lErrors, setLErrors] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    setMode(searchParams.get("mode") === "login" ? "login" : "register");
-  }, [searchParams]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {

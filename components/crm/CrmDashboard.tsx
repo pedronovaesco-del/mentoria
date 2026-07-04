@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { logFollowup, toggleEmailMarketing } from "@/lib/actions/crm";
-import { daysAgo, prioClass } from "@/lib/crm/scoring";
+import { daysAgo } from "@/lib/crm/scoring";
 import { CallScheduleModal } from "./CallScheduleModal";
 import { CallsList } from "./CallsList";
 import { LeadCard } from "./LeadCard";
@@ -283,7 +283,8 @@ export function CrmDashboard({ companies, initialCompanyId, initialLeads, initia
                     onClick={() =>
                       setQuick((prev) => {
                         const next = new Set(prev);
-                        next.has(q.key) ? next.delete(q.key) : next.add(q.key);
+                        if (next.has(q.key)) next.delete(q.key);
+                        else next.add(q.key);
                         return next;
                       })
                     }

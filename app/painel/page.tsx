@@ -35,7 +35,7 @@ export default async function PainelPage() {
   if (credits === 0) {
     return (
       <div className="flex min-h-screen flex-col">
-        <PainelHeader displayName={displayName} credits={0} userEmail={user.email!} />
+        <PainelHeader displayName={displayName} credits={0} />
         <PaywallPricing userEmail={user.email!} />
       </div>
     );
@@ -49,7 +49,7 @@ export default async function PainelPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <PainelHeader displayName={displayName} credits={credits} userEmail={user.email!} />
+      <PainelHeader displayName={displayName} credits={credits} />
       <LeadMarketplace leads={leads ?? []} credits={credits} defaultNiche={profile?.niche ?? "Todos"} />
     </div>
   );
@@ -58,11 +58,9 @@ export default async function PainelPage() {
 function PainelHeader({
   displayName,
   credits,
-  userEmail,
 }: {
   displayName: string;
   credits: number;
-  userEmail: string;
 }) {
   const waCredits = `https://wa.me/4748199443?text=${encodeURIComponent(
     "Ola Pedro quero comprar creditos para a plataforma de leads!"

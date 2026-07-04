@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { quickCallStatus } from "@/lib/actions/crm";
 import type { CrmCall, CrmCallStatus, CrmLead } from "@/types/database";
 
@@ -27,6 +28,22 @@ function fmtBrazilWeekday(d: Date) {
 }
 
 export function CallsList({ calls, onOpen }: { calls: CallWithLead[]; onOpen: (call: CrmCall) => void }) {
+  const { todayKey, tomorrowKey, groups, sortedKeys } = useMemo(() => {
+    const now = new Date();
+    const groups = new Map<string, CallWithLead[]>();
+    for (const c of calls) {
+      const key = brazilDateKey(new Date(c.scheduled_at));
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key)!.push(c);
+    }
+    return {
+      todayKey: brazilDateKey(now),
+      tomorrowKey: brazilDateKey(new Date(now.getTime() + 86400000)),
+      groups,
+      sortedKeys: [...groups.keys()].sort(),
+    };
+  }, [calls]);
+
   if (!calls.length) {
     return (
       <div className="py-16 text-center text-white/25">
@@ -35,17 +52,6 @@ export function CallsList({ calls, onOpen }: { calls: CallWithLead[]; onOpen: (c
       </div>
     );
   }
-
-  const todayKey = brazilDateKey(new Date());
-  const tomorrowKey = brazilDateKey(new Date(Date.now() + 86400000));
-
-  const groups = new Map<string, CallWithLead[]>();
-  for (const c of calls) {
-    const key = brazilDateKey(new Date(c.scheduled_at));
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key)!.push(c);
-  }
-  const sortedKeys = [...groups.keys()].sort();
 
   return (
     <div className="flex flex-col gap-6">

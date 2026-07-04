@@ -30,11 +30,15 @@ export function QuizFlow() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    // localStorage nao existe durante o SSR: precisa ser lido num efeito
+    // (nao num inicializador de useState) pra nao causar mismatch de
+    // hidratacao entre servidor e cliente.
     const raw = localStorage.getItem("quiz_lead");
     if (!raw) {
       router.replace("/");
       return;
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- ver comentario acima
     setLead(JSON.parse(raw));
     setReady(true);
   }, [router]);
