@@ -4,6 +4,8 @@ import { Hero } from "@/components/home/Hero";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { PasSection } from "@/components/home/PasSection";
 import { ExpertSection } from "@/components/home/ExpertSection";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { StatsBar } from "@/components/home/StatsBar";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
         <ProblemSection />
         <PasSection />
         <ExpertSection />
+        <HowItWorks />
+        <StatsBar />
       </main>
       <Footer />
     </>
