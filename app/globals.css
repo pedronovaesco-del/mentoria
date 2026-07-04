@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --blue-light: #bbd4ff;
+  --blue: #3b82f6;
+  --blue-mid: #2563eb;
+  --blue-deep: #1a56ff;
+  --blue-dark: #0a2c8c;
+  --ink: #050505;
+  --success: #10b981;
+  --danger: #ef4444;
+  --body-color: rgba(255, 255, 255, 0.68);
+
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Escalas fluidas — não cabem numa escala Tailwind estática, usadas via
+     arbitrary values, ex: max-w-[var(--prose-w)] */
+  --container-w: 1120px;
+  --edge-pad: clamp(24px, 6vw, 56px);
+  --prose-w: clamp(680px, 58vw, 820px);
+  --fs-h1: clamp(36px, 6.5vw, 68px);
+  --fs-h2: clamp(30px, 5vw, 52px);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-blue-light: var(--blue-light);
+  --color-blue: var(--blue);
+  --color-blue-mid: var(--blue-mid);
+  --color-blue-deep: var(--blue-deep);
+  --color-blue-dark: var(--blue-dark);
+  --color-ink: var(--ink);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-inter);
+  --font-grotesk: var(--font-space-grotesk);
+  --font-serif: var(--font-playfair);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill);
+
+  --ease-entrance: var(--ease-entrance);
+
+  /* Keyframes — blobs de fundo (drift) */
+  --animate-drift-a: driftA 34s ease-in-out infinite alternate;
+  --animate-drift-b: driftB 44s ease-in-out infinite alternate;
+  --animate-drift-c: driftC 38s ease-in-out infinite alternate;
+  --animate-btn-pulse: btnPulse 3.2s ease-in-out infinite;
+  --animate-btn-shine: btnShine 5s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes driftA {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(70px, -100px, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-40px, -190px, 0) scale(0.96);
+  }
+}
+@keyframes driftB {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-80px, -70px, 0) scale(0.94);
+  }
+  100% {
+    transform: translate3d(30px, -160px, 0) scale(1.05);
+  }
+}
+@keyframes driftC {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(45px, -80px, 0) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-30px, -150px, 0) scale(0.9);
+    opacity: 0.65;
+  }
+}
+@keyframes btnPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
+}
+@keyframes btnShine {
+  0%,
+  88% {
+    transform: translateX(-120%);
+  }
+  96%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ink);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
 }
