@@ -14,6 +14,8 @@ import { ForWhoSection } from "@/components/home/ForWhoSection";
 import { GuaranteeSection } from "@/components/home/GuaranteeSection";
 import { VisionSection } from "@/components/home/VisionSection";
 import { CtaSection } from "@/components/home/CtaSection";
+import { FaqAccordion } from "@/components/home/FaqAccordion";
+import { LeadModalController } from "@/components/home/LeadModalController";
 
 export default function Home() {
   return (
@@ -34,8 +36,10 @@ export default function Home() {
         <GuaranteeSection />
         <VisionSection />
         <CtaSection />
+        <FaqAccordion />
       </main>
       <Footer />
+      <LeadModalController />
     </>
   );
 }
