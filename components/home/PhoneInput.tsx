@@ -67,7 +67,7 @@ export function PhoneInput({ value, onChange, ddi, onDdiChange }: PhoneInputProp
                 className="w-full rounded-sm border border-white/10 bg-white/5 px-3 py-2 text-sm text-white outline-none"
               />
             </div>
-            <div className="max-h-54 overflow-y-auto">
+            <div className="max-h-[216px] overflow-y-auto">
               {filtered.length === 0 ? (
                 <div className="px-3.5 py-4 text-center text-sm text-white/40">
                   Nenhum país encontrado
