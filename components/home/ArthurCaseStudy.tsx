@@ -5,7 +5,7 @@ const CONTEXT_ITEMS = ["📅 7 dias de mentoria", "🚫 Sem experiência anterio
 
 export function ArthurCaseStudy() {
   return (
-    <section id="arthur" className="border-y border-blue/10 px-[var(--edge-pad)] py-20">
+    <section id="arthur" className="border-y border-blue/10 px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto grid max-w-(--container-w) grid-cols-1 items-center gap-16 md:grid-cols-2">
         <div>
           <Reveal>
@@ -67,7 +67,7 @@ export function ArthurCaseStudy() {
                 loading="lazy"
               />
             </div>
-            <div>
+            <div className="mx-auto w-full max-w-[340px]">
               <div className="flex items-center justify-center overflow-hidden rounded-md border border-blue/20 bg-[#0b0b10]">
                 <Image
                   src="/images/resultados/callmentoria2.jpg"

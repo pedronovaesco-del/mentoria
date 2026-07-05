@@ -4,7 +4,7 @@ import { PasBlock } from "./PasBlock";
 
 export function PasSection() {
   return (
-    <section className="px-[var(--edge-pad)] py-20">
+    <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--prose-w)">
         <Reveal>
           <SectionTag>O diagnóstico da realidade</SectionTag>

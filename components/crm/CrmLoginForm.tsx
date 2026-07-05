@@ -79,7 +79,7 @@ export function CrmLoginForm() {
             disabled={submitting}
             className="mt-1 min-h-11 w-full rounded-pill bg-gradient-to-b from-blue via-blue-mid to-blue-deep font-grotesk text-[15px] font-bold text-white shadow-[0_1px_0_rgba(187,212,255,0.3)_inset,0_5px_0_var(--blue-dark),0_8px_16px_rgba(10,44,140,0.4)] transition-transform hover:-translate-y-0.5 disabled:opacity-35"
           >
-            {submitting ? "Entrando…" : "Entrar →"}
+            {submitting ? "Entrando…" : "Entrar"}
           </button>
         </form>
       </div>

@@ -98,7 +98,7 @@ export function PaywallPricing({ userEmail }: { userEmail: string }) {
                       : "border border-white/12 bg-white/6 text-white/75"
                   }`}
                 >
-                  Escolher {p.tier} →
+                  Escolher {p.tier}
                 </a>
               </div>
             );

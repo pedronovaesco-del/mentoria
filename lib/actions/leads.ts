@@ -48,7 +48,10 @@ export async function submitLeadCapture(
   const phone = `${input.ddi} ${input.phoneMasked}`;
 
   try {
-    await supabase.from("quiz_leads").insert({
+    // Ver comentário em submitQuizAnswers: supabase-js resolve com
+    // `{ error }` em vez de lançar exceção em erro de query, então
+    // checamos error explicitamente (não só o catch).
+    const result = await supabase.from("quiz_leads").insert({
       id: leadId,
       name: input.name.trim(),
       phone,
@@ -56,6 +59,9 @@ export async function submitLeadCapture(
       source: "formulario-2.0",
       status: "lead",
     });
+    if (result.error) {
+      console.error("submitLeadCapture: insert no Supabase falhou:", result.error);
+    }
   } catch (err) {
     // Mesma postura do original: nao bloqueia o funil se o insert falhar
     // (o usuario segue pro quiz mesmo assim), so registra no log do servidor.
@@ -95,16 +101,23 @@ export async function submitQuizAnswers(input: QuizSubmitInput): Promise<void> {
   };
 
   try {
-    if (input.leadId) {
-      await supabase.from("quiz_leads").update(quizData).eq("id", input.leadId);
-    } else {
-      await supabase.from("quiz_leads").insert({
-        name: input.name,
-        phone: input.phone,
-        email: input.email,
-        source: "formulario-2.0/quiz",
-        ...quizData,
-      });
+    // Supabase-js não lança exceção em erro de query (RLS, coluna
+    // inexistente etc.) -- ele resolve normalmente com `{ error }`
+    // preenchido. Por isso checamos `error` explicitamente aqui, e não só
+    // o catch: sem isso, uma falha de escrita fica muda (o usuário vê a
+    // tela de resultado, mas nada foi salvo).
+    const result = input.leadId
+      ? await supabase.from("quiz_leads").update(quizData).eq("id", input.leadId)
+      : await supabase.from("quiz_leads").insert({
+          name: input.name,
+          phone: input.phone,
+          email: input.email,
+          source: "formulario-2.0/quiz",
+          ...quizData,
+        });
+
+    if (result.error) {
+      console.error("submitQuizAnswers: escrita no Supabase falhou:", result.error);
     }
   } catch (err) {
     console.warn("submitQuizAnswers falhou:", err);

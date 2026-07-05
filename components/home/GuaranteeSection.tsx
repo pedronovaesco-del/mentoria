@@ -2,7 +2,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function GuaranteeSection() {
   return (
-    <section className="px-[var(--edge-pad)] py-20">
+    <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <Reveal>
         <div className="mx-auto flex max-w-[780px] flex-col items-start gap-6 rounded-lg border border-success/20 bg-success/5 px-6 py-8 sm:flex-row sm:px-[52px] sm:py-12">
           <div className="shrink-0 text-[52px] leading-none">🛡️</div>

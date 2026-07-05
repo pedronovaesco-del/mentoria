@@ -10,7 +10,7 @@ const VISION_ITEMS = [
 
 export function VisionSection() {
   return (
-    <section className="px-[var(--edge-pad)] py-[110px] text-center">
+    <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)] text-center">
       <div className="mx-auto max-w-(--container-w)">
         <Reveal>
           <SectionTag>O que está do outro lado</SectionTag>

@@ -203,7 +203,7 @@ export function AuthTabs() {
               />
             </Field>
             <button type="submit" disabled={submitting} className={submitBtnClass}>
-              {submitting ? "Criando conta…" : "Criar minha conta →"}
+              {submitting ? "Criando conta…" : "Criar minha conta"}
             </button>
           </form>
         ) : (
@@ -229,7 +229,7 @@ export function AuthTabs() {
               />
             </Field>
             <button type="submit" disabled={submitting} className={submitBtnClass}>
-              {submitting ? "Entrando…" : "Entrar →"}
+              {submitting ? "Entrando…" : "Entrar"}
             </button>
           </form>
         )}

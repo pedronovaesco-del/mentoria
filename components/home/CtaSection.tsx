@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function CtaSection() {
   return (
-    <section id="cta" className="px-[var(--edge-pad)] py-[120px] text-center">
+    <section id="cta" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)] text-center">
       <Reveal>
         <Glass className="mx-auto max-w-[800px] rounded-lg p-9 sm:px-12 sm:py-[72px]">
           <span className="mb-5 block text-center text-[11px] font-semibold uppercase tracking-[2.5px] text-blue-light">
@@ -27,7 +27,7 @@ export function CtaSection() {
             <strong className="text-white">uma decisão de 2 minutos.</strong>
           </p>
           <CTAButton href="/quiz" variant="primary" className="!text-base !py-[18px] !px-11">
-            Garantir minha call diagnóstica gratuita →
+            Garantir minha call diagnóstica gratuita
           </CTAButton>
         </Glass>
       </Reveal>

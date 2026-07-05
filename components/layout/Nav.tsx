@@ -50,7 +50,7 @@ export function Nav() {
             </a>
           ))}
           <CTAButton href="/quiz" className="!min-h-0 !py-3 !px-[22px] !text-[13px]">
-            Meu diagnóstico →
+            Meu diagnóstico
           </CTAButton>
         </div>
 
@@ -82,7 +82,7 @@ export function Nav() {
             </a>
           ))}
           <CTAButton href="/quiz" onClick={() => setMenuOpen(false)}>
-            Meu diagnóstico →
+            Meu diagnóstico
           </CTAButton>
         </div>
       )}

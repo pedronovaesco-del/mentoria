@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function ProblemSection() {
   return (
-    <section className="px-[var(--edge-pad)] py-20">
+    <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--prose-w)">
         <Reveal>
           <SectionTitle>O problema que ninguém teve coragem de te falar</SectionTitle>

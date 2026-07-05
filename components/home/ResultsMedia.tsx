@@ -32,7 +32,7 @@ const RESULTS = [
 
 export function ResultsMedia() {
   return (
-    <section id="resultados" className="px-[var(--edge-pad)] py-20">
+    <section id="resultados" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--container-w)">
         <Reveal>
           <SectionTag>Provas de performance</SectionTag>

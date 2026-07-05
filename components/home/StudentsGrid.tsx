@@ -100,7 +100,7 @@ function StudentCard({ s, delay }: { s: Student; delay: 1 | 2 | 3 | 4 }) {
 
 export function StudentsGrid() {
   return (
-    <section id="alunos" className="px-[var(--edge-pad)] py-20">
+    <section id="alunos" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--container-w)">
         <Reveal>
           <SectionTag>Transformações reais</SectionTag>

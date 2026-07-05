@@ -9,7 +9,7 @@ const STATS = [
 
 export function StatsBar() {
   return (
-    <div className="px-[var(--edge-pad)] py-16">
+    <div className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--container-w)">
         <div className="grid grid-cols-2 gap-0 rounded-lg border border-blue/10 bg-gradient-to-r from-blue/6 to-blue-mid/3 px-2 py-5 text-center md:grid-cols-4">
           {STATS.map((s, i) => (

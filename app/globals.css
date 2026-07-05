@@ -18,6 +18,22 @@
   --radius-lg: 24px;
   --radius-pill: 999px;
 
+  /* Background imersivo — configurável (cor/velocidade/densidade) */
+  --bg-particle-rgb: 59, 130, 246; /* mesmo azul de --blue */
+  --bg-particle-dot-opacity: 0.55;
+  --bg-particle-line-opacity: 0.16;
+  --bg-ring-opacity: 0.1;
+  --bg-noise-opacity: 0.035;
+  --bg-parallax-mouse-px: 16px; /* deslocamento máx. do parallax de mouse */
+  --bg-parallax-scroll: 0.05; /* multiplicador do parallax de scroll */
+
+  /* Espaçamento vertical único entre/dentro de TODAS as seções da home.
+     Aplicado como padding-top E padding-bottom em cada seção (metade de
+     cada lado) -- assim o gap visual entre quaisquer duas seções vizinhas
+     é sempre o dobro deste valor, idêntico não importa quais duas sejam.
+     Pra mudar o espaçamento do site inteiro, mude só esta variável. */
+  --section-spacing-y: 40px;
+
   /* Escalas fluidas — não cabem numa escala Tailwind estática, usadas via
      arbitrary values, ex: max-w-[var(--prose-w)] */
   --container-w: 1120px;
@@ -32,6 +48,14 @@
   --ls-h1: -2px;
   --ls-h2: -2px;
   --ls-h3: -0.3px;
+}
+
+/* Espaçamento entre seções: 40px (mobile) / 64px (desktop, a partir do
+   breakpoint sm de 640px já usado no resto do projeto). */
+@media (min-width: 640px) {
+  :root {
+    --section-spacing-y: 64px;
+  }
 }
 
 @theme inline {
@@ -62,6 +86,11 @@
   --animate-drift-c: driftC 38s ease-in-out infinite alternate;
   --animate-btn-pulse: btnPulse 3.2s ease-in-out infinite;
   --animate-btn-shine: btnShine 5s ease-in-out infinite;
+
+  /* Keyframes — camadas imersivas do fundo */
+  --animate-ring-spin: ringSpin 120s linear infinite;
+  --animate-ring-spin-rev: ringSpinRev 160s linear infinite;
+  --animate-grain: grainShift 1.4s steps(1) infinite;
 }
 
 @keyframes driftA {
@@ -120,6 +149,52 @@
   }
 }
 
+@keyframes ringSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ringSpinRev {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes grainShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  12.5% {
+    background-position: -8% 3%;
+  }
+  25% {
+    background-position: 5% -6%;
+  }
+  37.5% {
+    background-position: -4% -3%;
+  }
+  50% {
+    background-position: 7% 8%;
+  }
+  62.5% {
+    background-position: -6% 5%;
+  }
+  75% {
+    background-position: 3% -8%;
+  }
+  87.5% {
+    background-position: -3% 4%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -128,6 +203,24 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* O componente <Reveal> aplica opacity/transform via inline style (Framer
+     Motion), que teria prioridade sobre uma regra normal; !important aqui
+     é o único jeito de sobrepor isso e garantir que o conteúdo apareça
+     imediatamente, sem depender de nenhum estado de JS. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Mesmo problema, mesmo remédio: as telas do QuizFlow/QuizResult usam
+     motion.div (Framer Motion) direto pra transição entre etapas, sem
+     passar pelo componente <Reveal> -- por isso precisam da própria
+     regra aqui. */
+  .quiz-step {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

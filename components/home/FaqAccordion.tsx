@@ -35,7 +35,7 @@ export function FaqAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="px-[var(--edge-pad)] py-20">
+    <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto mb-2 max-w-[560px] text-center">
         <Reveal>
           <SectionTag>Sem dúvidas antes de decidir</SectionTag>

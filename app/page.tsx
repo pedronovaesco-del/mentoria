@@ -1,4 +1,3 @@
-import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { ProblemSection } from "@/components/home/ProblemSection";
@@ -15,12 +14,10 @@ import { GuaranteeSection } from "@/components/home/GuaranteeSection";
 import { VisionSection } from "@/components/home/VisionSection";
 import { CtaSection } from "@/components/home/CtaSection";
 import { FaqAccordion } from "@/components/home/FaqAccordion";
-import { LeadModalController } from "@/components/home/LeadModalController";
 
 export default function Home() {
   return (
     <>
-      <Nav />
       <main>
         <Hero />
         <ProblemSection />
@@ -39,7 +36,6 @@ export default function Home() {
         <FaqAccordion />
       </main>
       <Footer />
-      <LeadModalController />
     </>
   );
 }

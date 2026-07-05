@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { QuizFlow } from "@/components/quiz/QuizFlow";
-import { QuizHeader } from "@/components/quiz/QuizHeader";
 import { QuizFooter } from "@/components/quiz/QuizFooter";
 
 export const metadata: Metadata = {
@@ -18,8 +17,7 @@ export const metadata: Metadata = {
 export default function QuizPage() {
   return (
     <>
-      <QuizHeader />
-      <main className="flex flex-1 flex-col items-center px-5 pt-12 pb-20">
+      <main className="flex flex-1 flex-col items-center justify-center px-5 py-12">
         <QuizFlow />
       </main>
       <QuizFooter />

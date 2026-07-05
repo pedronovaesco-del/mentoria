@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Fragment } from "react";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { Reveal } from "@/components/ui/Reveal";
@@ -10,8 +11,28 @@ const TRUST_ITEMS = [
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center text-center px-[var(--edge-pad)] pt-28 pb-20">
-      <div className="relative z-10 mx-auto max-w-(--prose-w)">
+    <section className="relative flex min-h-screen flex-col items-center text-center">
+      <Reveal delay={0} className="relative h-[420px] w-full overflow-hidden sm:mx-auto sm:h-[800px] sm:w-[580px] sm:rounded-2xl sm:shadow-[0_32px_80px_rgba(26,86,255,0.16)]">
+        <Image
+          src="/images/expert/banner-cropped.png"
+          alt="Pedro Novaes"
+          fill
+          priority
+          className="object-cover"
+          style={{
+            objectPosition: "50% 48%",
+            maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+          }}
+        />
+      </Reveal>
+
+      <div className="relative z-10 -mt-28 flex flex-1 flex-col items-center justify-center px-[var(--edge-pad)] pb-[var(--section-spacing-y)] sm:-mt-52">
+      <div className="relative mx-auto max-w-(--prose-w) overflow-hidden">
+        <div
+          className="pointer-events-none absolute -inset-x-10 -inset-y-8 -z-10 rounded-[50%] blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--ink) 45%, transparent 100%)" }}
+        />
         <Reveal as="h1" delay={1} className="font-grotesk font-bold mb-6" >
           <span
             className="text-3d-gradient block"
@@ -61,7 +82,7 @@ export function Hero() {
 
         <Reveal delay={3} className="mb-10 flex flex-col items-center gap-3.5">
           <CTAButton href="/quiz" variant="primary" className="!text-[15px] !py-4 !px-9">
-            Descobrir o gargalo que trava a minha escala →
+            Descobrir o gargalo que trava a minha escala
           </CTAButton>
           <a
             href="#como-funciona"
@@ -81,6 +102,7 @@ export function Hero() {
             </Fragment>
           ))}
         </Reveal>
+      </div>
       </div>
     </section>
   );

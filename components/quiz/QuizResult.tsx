@@ -25,7 +25,7 @@ export function QuizResult({ profile, summary }: { profile: Profile; summary: st
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: EASE_ENTRANCE }}
-      className="text-center"
+      className="quiz-step text-center"
     >
       <div
         className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-dark to-blue text-4xl shadow-[0_0_0_14px_rgba(59,130,246,0.07),0_0_0_28px_rgba(59,130,246,0.03)]"

@@ -21,7 +21,7 @@ const NO = [
 
 export function ForWhoSection() {
   return (
-    <section id="para-quem" className="px-[var(--edge-pad)] py-20">
+    <section id="para-quem" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--container-w)">
         <div className="mx-auto max-w-[560px] text-center">
           <Reveal>
@@ -46,15 +46,19 @@ export function ForWhoSection() {
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <Reveal delay={1}>
-            <Glass className="border-success/15! bg-success/5! rounded-lg p-9">
+          <Reveal delay={1} className="h-full">
+            <Glass className="h-full border-success/15! bg-success/5! rounded-lg p-9">
               <h3 className="mb-5 flex items-center gap-2.5 font-grotesk font-bold" style={{ fontSize: "var(--fs-h3)", letterSpacing: "var(--ls-h3)" }}>
                 <span className="text-lg">✅</span> Essa call é para você se:
               </h3>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5">
                 {YES.map((item) => (
-                  <div key={item} className="flex items-start gap-3 text-white/68" style={{ fontSize: "var(--fs-body)", lineHeight: 1.6 }}>
-                    <span className="mt-px flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full border border-success/25 bg-success/15 text-xs font-bold text-[#34D399]">
+                  <div
+                    key={item}
+                    className="flex items-start gap-3.5 rounded-md border border-success/12 bg-success/[0.04] px-4 py-3.5 font-medium text-white/85"
+                    style={{ fontSize: "18px", lineHeight: 1.65 }}
+                  >
+                    <span className="mt-px flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full border border-success/25 bg-success/15 text-sm font-bold text-[#34D399]">
                       ✓
                     </span>
                     {item}
@@ -64,15 +68,19 @@ export function ForWhoSection() {
             </Glass>
           </Reveal>
 
-          <Reveal delay={2}>
-            <Glass className="border-danger/12! bg-danger/5! rounded-lg p-9">
+          <Reveal delay={2} className="h-full">
+            <Glass className="h-full border-danger/12! bg-danger/5! rounded-lg p-9">
               <h3 className="mb-5 flex items-center gap-2.5 font-grotesk font-bold" style={{ fontSize: "var(--fs-h3)", letterSpacing: "var(--ls-h3)" }}>
                 <span className="text-lg">❌</span> Essa call NÃO é para você se:
               </h3>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5">
                 {NO.map((item) => (
-                  <div key={item} className="flex items-start gap-3 text-white/68" style={{ fontSize: "var(--fs-body)", lineHeight: 1.6 }}>
-                    <span className="mt-px flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full border border-danger/20 bg-danger/12 text-xs font-bold text-[#F87171]">
+                  <div
+                    key={item}
+                    className="flex items-start gap-3.5 rounded-md border border-danger/10 bg-danger/[0.03] px-4 py-3.5 font-medium text-white/85"
+                    style={{ fontSize: "18px", lineHeight: 1.65 }}
+                  >
+                    <span className="mt-px flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full border border-danger/20 bg-danger/12 text-sm font-bold text-[#F87171]">
                       ✗
                     </span>
                     {item}
@@ -86,7 +94,7 @@ export function ForWhoSection() {
         <div className="mt-10 text-center">
           <Reveal delay={3}>
             <CTAButton href="/quiz" className="!text-[15px] !py-4 !px-9">
-              Me identifico! Quero a call →
+              Me identifico! Quero a call
             </CTAButton>
             <p className="mt-3.5 text-[13px] text-white/40">
               100% gratuito · Sem compromisso · Resposta em até 2h

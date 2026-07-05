@@ -28,7 +28,7 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="px-[var(--edge-pad)] py-20">
+    <section id="como-funciona" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--container-w)">
         <div className="mx-auto max-w-[560px] text-center">
           <Reveal>
@@ -80,7 +80,7 @@ export function HowItWorks() {
               <strong className="text-white">passo 1</strong>.
             </p>
             <CTAButton href="/quiz" className="!text-[15px] !py-4 !px-8">
-              Responder o diagnóstico agora (2 min) →
+              Responder o diagnóstico agora (2 min)
             </CTAButton>
             <p className="mt-[18px] text-[13px] text-white/40">
               Sem custo e sem compromisso. No pior cenário, você sai com clareza que não tinha,

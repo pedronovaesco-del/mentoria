@@ -12,7 +12,7 @@ const STATS = [
 
 export function ExpertSection() {
   return (
-    <section id="expert" className="px-[var(--edge-pad)] py-20 text-center">
+    <section id="expert" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)] text-center">
       <div className="mx-auto max-w-(--prose-w)">
         <Reveal>
           <SectionTag>Quem vai te guiar</SectionTag>

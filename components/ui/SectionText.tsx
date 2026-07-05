@@ -48,7 +48,7 @@ export function SectionBody({
 /** Destaque discreto de bullet-point disfarçado de prosa (era o "hook-box"). */
 export function HookBox({ children }: { children: ReactNode }) {
   return (
-    <div className="relative mt-10 max-w-(--prose-w) overflow-hidden rounded-lg border-[1.5px] border-blue/32 bg-blue/10 p-9 text-left shadow-[0_14px_36px_rgba(59,130,246,0.14)] [&_strong]:font-bold [&_strong]:text-blue-light">
+    <div className="relative mx-auto mt-10 max-w-(--prose-w) overflow-hidden rounded-lg border-[1.5px] border-blue/32 bg-blue/10 p-9 text-left shadow-[0_14px_36px_rgba(59,130,246,0.14)] [&_strong]:font-bold [&_strong]:text-blue-light">
       {children}
     </div>
   );
