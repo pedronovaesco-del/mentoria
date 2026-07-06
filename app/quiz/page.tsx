@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { QuizFlow } from "@/components/quiz/QuizFlow";
-import { QuizFooter } from "@/components/quiz/QuizFooter";
 
 export const metadata: Metadata = {
   title: "Diagnóstico Gratuito | Pedro Novaes",
@@ -16,11 +15,8 @@ export const metadata: Metadata = {
 
 export default function QuizPage() {
   return (
-    <>
-      <main className="flex flex-1 flex-col items-center justify-center px-5 py-12">
-        <QuizFlow />
-      </main>
-      <QuizFooter />
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center px-5 py-12">
+      <QuizFlow />
+    </main>
   );
 }

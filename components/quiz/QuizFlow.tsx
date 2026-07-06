@@ -242,8 +242,16 @@ export function QuizFlow() {
 
   return (
     <div className="relative w-full max-w-[640px]">
-      {!done && step === 1 && (
-        <div className="absolute inset-x-0 bottom-full mb-8 text-center">
+      {!done && (
+        <div
+          className={`mb-8 text-center ${step === 1 ? "" : "invisible"}`}
+          // Sempre ocupa o mesmo espaço no fluxo normal (só o conteúdo fica
+          // invisível fora da etapa 1) -- isso mantém o card sempre na
+          // mesma posição entre as etapas SEM usar position:absolute, que
+          // em telas baixas empurrava esse bloco pra fora da viewport (com
+          // coordenada negativa, impossível de rolar até lá).
+          aria-hidden={step !== 1}
+        >
           <div className="mb-5 inline-flex items-center gap-1.5 rounded-pill border border-blue/28 bg-blue/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[1.2px] text-blue-light">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-success" />
             Diagnóstico gratuito
