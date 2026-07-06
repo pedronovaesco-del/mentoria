@@ -33,7 +33,17 @@ export default function Home() {
         <GuaranteeSection />
         <VisionSection />
         <CtaSection />
-        <FaqAccordion />
+        {/* Da FAQ em diante o conteúdo fica mais esparso, o que deixa os
+            blobs do fundo animado (fixed, sempre na mesma posição da tela)
+            visíveis demais e concentrados nos cantos -- esse gradiente
+            esmaece o fundo gradualmente até opaco antes do rodapé. */}
+        <div
+          style={{
+            background: "linear-gradient(to bottom, transparent 0%, var(--ink) 60%)",
+          }}
+        >
+          <FaqAccordion />
+        </div>
       </main>
       <Footer />
     </>

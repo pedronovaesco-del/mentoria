@@ -23,5 +23,9 @@ export const BACKGROUND_CONFIG = {
     mouseStrengthPx: 16,
     /** multiplicador do parallax reativo ao scroll */
     scrollStrength: 0.05,
+    /** deslocamento máximo (px) do parallax de scroll -- sem isso, o
+     * deslocamento (scrollY * scrollStrength) cresce sem limite em páginas
+     * longas e os blobs acabam se acumulando na parte de baixo da tela. */
+    scrollMaxPx: 30,
   },
 } as const;

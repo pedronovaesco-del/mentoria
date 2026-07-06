@@ -10,7 +10,7 @@ const LINKS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[.06] py-9">
+    <footer className="border-t border-white/[.06] bg-ink py-9">
       <div className="max-w-(--breakpoint-xl) mx-auto px-[var(--edge-pad)] flex flex-wrap items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-2.5 no-underline">
           <Image src="/images/logo.png" alt="Pedro Novaes logo" width={32} height={32} loading="lazy" />

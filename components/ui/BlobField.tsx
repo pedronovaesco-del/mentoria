@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { BACKGROUND_CONFIG } from "@/lib/motion/backgroundConfig";
 
-const { mouseStrengthPx, scrollStrength } = BACKGROUND_CONFIG.parallax;
+const { mouseStrengthPx, scrollStrength, scrollMaxPx } = BACKGROUND_CONFIG.parallax;
 
 /**
  * Blobs radiais (gradiente) + anéis geométricos, com parallax sutil reagindo
@@ -43,7 +43,8 @@ export function BlobField() {
       schedule();
     }
     function handleScroll() {
-      sy = window.scrollY * scrollStrength;
+      const raw = window.scrollY * scrollStrength;
+      sy = Math.max(-scrollMaxPx, Math.min(scrollMaxPx, raw));
       schedule();
     }
 
