@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { submitLeadCapture, submitQuizAnswers } from "@/lib/actions/leads";
 import { COUNTRIES } from "@/lib/data/countries";
 import { EASE_ENTRANCE } from "@/lib/motion/variants";
@@ -73,8 +73,6 @@ function saveQuizState(state: QuizState) {
 }
 
 export function QuizFlow() {
-  const cardRef = useRef<HTMLDivElement>(null);
-
   const [ready, setReady] = useState(false);
   const [quiz, setQuiz] = useState<QuizState>(INITIAL_STATE);
   const [errors, setErrors] = useState<Partial<Record<string, string>>>({});
@@ -97,14 +95,6 @@ export function QuizFlow() {
   const questionIndex = step - CONTACT_STEPS - 1;
   const question =
     questionIndex >= 0 && questionIndex < QUESTIONS.length ? QUESTIONS[questionIndex] : undefined;
-
-  useEffect(() => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    if (rect.top < 80) {
-      window.scrollTo({ top: window.scrollY + rect.top - 88, behavior: "smooth" });
-    }
-  }, [step]);
 
   // Impede retrocesso via botão "voltar" do navegador em qualquer tela do
   // fluxo (contato ou perguntas): empilha uma entrada extra de histórico e,
@@ -272,10 +262,7 @@ export function QuizFlow() {
         </div>
       )}
 
-      <div
-        ref={cardRef}
-        className="relative overflow-hidden rounded-lg border border-white/10 bg-white/4 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-blue/50 before:to-transparent"
-      >
+      <div className="relative overflow-hidden rounded-lg border border-white/10 bg-white/4 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-blue/50 before:to-transparent">
         <div className="p-6 sm:p-10">
           <AnimatePresence mode="wait">
             {done && profile ? (
