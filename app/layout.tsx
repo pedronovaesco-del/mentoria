@@ -43,7 +43,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${inter.variable} ${playfair.variable} ${spaceGrotesk.variable}`}
     >
-      <body className="flex min-h-dvh flex-col antialiased font-sans">
+      <body className="isolate flex min-h-dvh flex-col antialiased font-sans">
         <AnimatedBackground />
         <ScrollProgressBar />
         {children}

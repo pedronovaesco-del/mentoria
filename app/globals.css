@@ -18,14 +18,14 @@
   --radius-lg: 24px;
   --radius-pill: 999px;
 
-  /* Background imersivo — configurável (cor/velocidade/densidade) */
-  --bg-particle-rgb: 59, 130, 246; /* mesmo azul de --blue */
-  --bg-particle-dot-opacity: 0.55;
-  --bg-particle-line-opacity: 0.16;
-  --bg-ring-opacity: 0.1;
-  --bg-noise-opacity: 0.035;
-  --bg-parallax-mouse-px: 16px; /* deslocamento máx. do parallax de mouse */
-  --bg-parallax-scroll: 0.05; /* multiplicador do parallax de scroll */
+  /* Background imersivo — configurável (cor/densidade). Velocidade e
+     densidade das partículas/parallax ficam em lib/motion/backgroundConfig.ts
+     (valores computados em canvas/JS, não em CSS). */
+  --bg-blob-a-opacity: 0.45;
+  --bg-blob-b-opacity: 0.4;
+  --bg-blob-c-opacity: 0.38;
+  --bg-ring-opacity: 0.28;
+  --bg-noise-opacity: 0.08;
 
   /* Espaçamento vertical único entre/dentro de TODAS as seções da home.
      Aplicado como padding-top E padding-bottom em cada seção (metade de

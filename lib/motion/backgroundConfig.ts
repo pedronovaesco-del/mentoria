@@ -6,10 +6,10 @@ export const BACKGROUND_CONFIG = {
   particles: {
     /** RGB (sem alpha) — combina com --blue do design system */
     rgb: "59, 130, 246",
-    dotOpacity: 0.55,
-    lineOpacity: 0.16,
+    dotOpacity: 0.7,
+    lineOpacity: 0.24,
     /** distância máxima (px) pra desenhar uma linha entre duas partículas */
-    linkDistance: 130,
+    linkDistance: 150,
     /** velocidade máxima de deriva, em px/frame a 60fps */
     maxSpeed: 0.18,
     byBreakpoint: {

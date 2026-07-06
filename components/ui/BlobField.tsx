@@ -67,7 +67,7 @@ export function BlobField() {
             left: -160,
             top: "55%",
             background:
-              "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.18), transparent 70%)",
+              "radial-gradient(circle at 50% 50%, rgba(59,130,246,var(--bg-blob-a-opacity)), transparent 70%)",
           }}
         />
       </Layer>
@@ -81,7 +81,7 @@ export function BlobField() {
             right: -140,
             top: "12%",
             background:
-              "radial-gradient(circle at 50% 50%, rgba(37,99,235,0.15), transparent 70%)",
+              "radial-gradient(circle at 50% 50%, rgba(37,99,235,var(--bg-blob-b-opacity)), transparent 70%)",
           }}
         />
       </Layer>
@@ -95,7 +95,7 @@ export function BlobField() {
             left: "38%",
             top: "82%",
             background:
-              "radial-gradient(circle at 50% 50%, rgba(26,86,255,0.14), transparent 70%)",
+              "radial-gradient(circle at 50% 50%, rgba(26,86,255,var(--bg-blob-c-opacity)), transparent 70%)",
           }}
         />
       </Layer>
