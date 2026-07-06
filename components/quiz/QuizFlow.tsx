@@ -367,13 +367,20 @@ export function QuizFlow() {
                 <div className="grid gap-2.5">
                   {question.options.map((opt) => {
                     const selected = displayed === opt.value;
+                    // Enquanto a escolha ainda não avançou de tela (janela do
+                    // ADVANCE_DELAY), esmaece as outras opções pra reforçar
+                    // visualmente qual foi escolhida.
+                    const dimmed = Boolean(pendingChoice) && !selected;
                     return (
-                      <button
+                      <motion.button
                         key={opt.value}
                         type="button"
                         disabled={Boolean(pendingChoice)}
                         onClick={() => pick(opt.value)}
-                        className={`flex w-full items-center gap-3.5 rounded-md border px-[18px] py-4 text-left font-grotesk text-[15px] font-medium transition-all duration-150 disabled:cursor-default ${
+                        animate={{ scale: selected ? 1.02 : 1, opacity: dimmed ? 0.4 : 1 }}
+                        whileTap={{ scale: 0.97 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                        className={`flex w-full items-center gap-3.5 rounded-md border px-[18px] py-4 text-left font-grotesk text-[15px] font-medium transition-colors duration-150 disabled:cursor-default ${
                           selected
                             ? "border-blue/60 bg-blue/12 text-white"
                             : "border-white/9 bg-white/3 text-white/80 hover:border-blue/40 hover:bg-blue/7 hover:text-white disabled:hover:border-white/9 disabled:hover:bg-white/3"
@@ -381,7 +388,21 @@ export function QuizFlow() {
                       >
                         <span className="shrink-0 text-xl">{opt.emoji}</span>
                         {opt.label}
-                      </button>
+                        <AnimatePresence>
+                          {selected && (
+                            <motion.span
+                              key="check"
+                              initial={{ scale: 0, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              exit={{ scale: 0, opacity: 0 }}
+                              transition={{ type: "spring", stiffness: 500, damping: 22 }}
+                              className="ml-auto flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue text-xs text-white"
+                            >
+                              ✓
+                            </motion.span>
+                          )}
+                        </AnimatePresence>
+                      </motion.button>
                     );
                   })}
                 </div>
