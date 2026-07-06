@@ -12,7 +12,7 @@ const TRUST_ITEMS = [
 export function Hero() {
   return (
     <section className="relative flex min-h-dvh flex-col items-center text-center">
-      <Reveal delay={0} className="relative h-[420px] w-full overflow-hidden sm:mx-auto sm:h-[800px] sm:w-[580px] sm:rounded-2xl sm:shadow-[0_32px_80px_rgba(26,86,255,0.16)]">
+      <Reveal delay={0} className="relative h-[420px] w-full overflow-hidden sm:mx-auto sm:h-[800px] sm:w-[580px] sm:rounded-2xl">
         <Image
           src="/images/expert/banner-cropped.png"
           alt="Pedro Novaes"
