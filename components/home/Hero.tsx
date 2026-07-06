@@ -12,27 +12,23 @@ const TRUST_ITEMS = [
 export function Hero() {
   return (
     <section className="relative flex min-h-dvh flex-col items-center text-center">
-      <Reveal delay={0} className="relative h-[420px] w-full overflow-hidden sm:mx-auto sm:h-[800px] sm:w-[580px] sm:rounded-2xl">
+      <Reveal delay={0} className="relative mx-auto h-[360px] w-[280px] overflow-hidden rounded-2xl sm:h-[520px] sm:w-[400px]">
         <Image
-          src="/images/expert/banner-cropped.png"
+          src="/images/expert/banner.png"
           alt="Pedro Novaes"
           fill
           priority
           className="object-cover"
           style={{
-            objectPosition: "50% 48%",
-            maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+            objectPosition: "50% 30%",
+            maskImage: "linear-gradient(to bottom, black 0%, black 75%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 75%, transparent 100%)",
           }}
         />
       </Reveal>
 
-      <div className="relative z-10 -mt-28 flex flex-1 flex-col items-center justify-center px-[var(--edge-pad)] pb-[var(--section-spacing-y)] sm:-mt-52">
+      <div className="relative z-10 -mt-16 flex flex-1 flex-col items-center justify-center px-[var(--edge-pad)] pb-[var(--section-spacing-y)] sm:-mt-20">
       <div className="relative mx-auto max-w-(--prose-w) overflow-hidden">
-        <div
-          className="pointer-events-none absolute -inset-x-10 -inset-y-8 -z-10 rounded-[50%] blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--ink) 45%, transparent 100%)" }}
-        />
         <Reveal as="h1" delay={1} className="font-grotesk font-bold mb-6" >
           <span
             className="text-3d-gradient block"
