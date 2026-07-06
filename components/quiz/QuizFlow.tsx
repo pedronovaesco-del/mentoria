@@ -91,6 +91,16 @@ export function QuizFlow() {
     setReady(true);
   }, []);
 
+  // Trava o scroll do body enquanto o quiz está montado (reforço além do
+  // container fixed em app/quiz/page.tsx) e restaura ao sair da página.
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
+
   const { step } = quiz;
   const questionIndex = step - CONTACT_STEPS - 1;
   const question =
@@ -232,16 +242,13 @@ export function QuizFlow() {
 
   return (
     <div className="relative w-full max-w-[640px]">
-      {!done && (
-        <div
-          className={`mb-8 text-center ${step === 1 ? "" : "invisible"}`}
-          // Sempre ocupa o mesmo espaço no fluxo normal (só o conteúdo fica
-          // invisível fora da etapa 1) -- isso mantém o card sempre na
-          // mesma posição entre as etapas SEM usar position:absolute, que
-          // em telas baixas empurrava esse bloco pra fora da viewport (com
-          // coordenada negativa, impossível de rolar até lá).
-          aria-hidden={step !== 1}
-        >
+      {!done && step === 1 && (
+        // Só existe no fluxo (não apenas invisível) na etapa 1: assim o
+        // card fica exatamente centralizado na tela nas demais etapas, em
+        // vez de sempre deslocado pra baixo por um espaço reservado. Sem
+        // position:absolute -- o texto ocupa espaço normal do fluxo, então
+        // não há risco de coordenada negativa/inalcançável em telas baixas.
+        <div className="mb-8 text-center">
           <div className="mb-5 inline-flex items-center gap-1.5 rounded-pill border border-blue/28 bg-blue/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[1.2px] text-blue-light">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-success" />
             Diagnóstico gratuito

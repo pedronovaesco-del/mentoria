@@ -225,6 +225,12 @@
 }
 
 html {
+  /* Mesma cor do body -- em iOS/Chrome mobile, a área de rubber-band/
+     overscroll revelada ao rolar (inclusive quando a barra de endereço
+     recolhe perto do fim do documento) é pintada com o background do
+     <html>, não do <body>. Sem isso, esse trecho aparece transparente
+     (fundo nativo do navegador) mesmo com o body todo coberto. */
+  background: var(--ink);
   scroll-behavior: smooth;
 }
 @media (prefers-reduced-motion: reduce) {
