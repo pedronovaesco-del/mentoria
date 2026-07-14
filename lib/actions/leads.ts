@@ -31,13 +31,13 @@ export async function submitLeadCapture(
   const errors: LeadCaptureErrors = {};
 
   if (input.name.trim().length < 3) {
-    errors.name = "Informe seu nome completo.";
+    errors.name = "Enter your full name.";
   }
   if (input.phoneDigits.length < input.requiredDigits) {
-    errors.phone = "Número incompleto para o país selecionado.";
+    errors.phone = "Incomplete number for the selected country.";
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.email.trim())) {
-    errors.email = "Informe um e-mail válido.";
+    errors.email = "Enter a valid email.";
   }
   if (Object.keys(errors).length > 0) {
     return { ok: false, errors };
@@ -77,6 +77,7 @@ export interface QuizSubmitInput {
   phone: string;
   email: string;
   answers: QuizAnswers;
+  qualification: string;
 }
 
 /**
@@ -96,6 +97,10 @@ export async function submitQuizAnswers(input: QuizSubmitInput): Promise<void> {
     challenge: input.answers.challenge || null,
     digital_level: input.answers.digital_level || null,
     time: input.answers.time || null,
+    motivation: input.answers.motivation || null,
+    ethics: input.answers.ethics || null,
+    readiness: input.answers.readiness || null,
+    qualification: input.qualification,
     niche: inferNiche(input.answers),
     status: "quiz_completed" as const,
   };

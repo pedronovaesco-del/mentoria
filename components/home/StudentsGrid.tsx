@@ -19,42 +19,42 @@ const STUDENTS: Student[] = [
   {
     photo: "/images/alunos/aluno-1.jpg",
     name: "Cristian M.",
-    meta: "São Paulo, SP · Tráfego pago",
-    pills: ["ROI 5× ↑", "CPA R$20", "21 dias"],
+    meta: "São Paulo, SP · Paid traffic",
+    pills: ["ROI 5× ↑", "CPA R$20", "21 days"],
     quote:
-      '"Antes meu ROI ficava abaixo de 1. Eu estava perdendo dinheiro e nem sabia. Hoje estou com CPA de 20, ROI de 5. Confiei nas regras e foquei em escalar."',
+      '"Before, my ROI was below 1. I was losing money and didn\'t even know it. Today I\'m at a CPA of 20, ROI of 5. I trusted the rules and focused on scaling."',
     proof: "/images/alunos/prova1.jpeg",
-    proofAlt: "Resultado do mentorado Cristian",
+    proofAlt: "Cristian's result as a mentee",
   },
   {
     photo: "/images/alunos/aluno-2.webp",
     name: "Alexandre R.",
-    meta: "Curitiba, PR · Produto digital",
-    pills: ["ROI 4× ↑", "10 campanhas", "Operação rodando"],
+    meta: "Curitiba, PR · Digital product",
+    pills: ["ROI 4× ↑", "10 campaigns", "Operation running"],
     quote:
-      '"Minha operação estava instável: um mês bom, dois ruins. Com o método, fechei com ROI de quase 4 e já agendei mais 10 campanhas. A operação está rodando sozinha."',
+      '"My operation was unstable: one good month, two bad ones. With the method, I closed with an ROI of almost 4 and already scheduled 10 more campaigns. The operation is running on its own."',
     proof: "/images/alunos/prova2.jpeg",
-    proofAlt: "Resultado de campanha do mentorado",
+    proofAlt: "Mentee's campaign result",
   },
   {
     photo: "/images/alunos/aluno-3.webp",
     name: "Henrique S.",
     meta: "Belo Horizonte, MG · E-commerce",
-    pills: ["R$1.531 líquido", "ROAS 2.5", "Escalando"],
+    pills: ["R$1,531 net", "ROAS 2.5", "Scaling"],
     quote:
-      '"Nunca tinha conseguido fechar um mês no verde de forma consistente. Primeiro mês com o sistema: R$ 1.531 de faturamento líquido, ROAS de 2.5. Agora quero escalar."',
+      '"I had never managed to consistently close a month in the green. First month with the system: R$1,531 in net revenue, ROAS of 2.5. Now I want to scale."',
     proof: "/images/alunos/printmentorado.jpg",
-    proofAlt: "Resultado do mentorado Henrique",
+    proofAlt: "Henrique's result as a mentee",
   },
   {
     initial: "C",
     name: "Carlos",
-    meta: "Resultado em 7 dias de teste",
-    pills: ["R$2.343,20", "7 dias", "Início rápido"],
+    meta: "Result after a 7-day trial",
+    pills: ["R$2,343.20", "7 days", "Fast start"],
     quote:
-      '"Eu ia te mandar mensagem agora pra mostrar o faturamento que eu tive nesses últimos 7 dias… só nos 7 dias de teste, consegui isso já."',
+      '"I was just about to message you to show you the revenue I made in the last 7 days… in just 7 days of testing, I already got this."',
     proof: "/images/alunos/printmentoradocarlos.jpg",
-    proofAlt: "Resultado do mentorado Carlos",
+    proofAlt: "Carlos's result as a mentee",
   },
 ];
 
@@ -103,24 +103,25 @@ export function StudentsGrid() {
     <section id="alunos" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--container-w)">
         <Reveal>
-          <SectionTag>Transformações reais</SectionTag>
+          <SectionTag>Real transformations</SectionTag>
         </Reveal>
         <Reveal delay={1}>
           <h2
             className="max-w-(--prose-w) font-grotesk font-bold leading-[1.05] mb-5"
             style={{ fontSize: "var(--fs-h2)", letterSpacing: "var(--ls-h2)" }}
           >
-            Do travado ao <span className="text-3d-gradient">consistente</span>:
+            From stuck to <span className="text-3d-gradient">consistent</span>:
             <br />
             <span className="text-[0.8em] text-white/50">
-              o que acontece quando você para de adivinhar
+              what happens when you stop guessing
             </span>
           </h2>
         </Reveal>
         <Reveal delay={2}>
           <p className="max-w-(--prose-w) text-body-color" style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-            Não são exceções. São pessoas que estavam no mesmo ciclo que você, e trocaram o
-            &quot;chute do criativo&quot; por um sistema que aponta a alavanca certa.
+            These aren&apos;t exceptions. These are people who were in the same cycle
+            you&apos;re in, and traded &quot;guessing at the creative&quot; for a system that
+            points to the right lever.
           </p>
         </Reveal>
 
@@ -133,13 +134,13 @@ export function StudentsGrid() {
         <Reveal delay={3}>
           <HookBox>
             <p>
-              No caso do Cristian, o ROI saltou de menos de 1 pra 5 corrigindo{" "}
+              In Cristian&apos;s case, ROI jumped from under 1 to 5 by fixing{" "}
               <strong>
-                um erro invisível de escala que quase todo negócio comete ao tentar
-                &quot;crescer mais rápido&quot;
+                an invisible scaling mistake almost every business makes when trying to
+                &quot;grow faster&quot;
               </strong>
-              : o mesmo erro que derruba o seu ROI justo quando você aumenta o orçamento. Veja
-              no próximo caso o que 7 dias disso fizeram com quem começou do zero ↓
+              : the same mistake that tanks your ROI right when you increase the budget. See
+              in the next case what 7 days of this did for someone who started from zero ↓
             </p>
           </HookBox>
         </Reveal>

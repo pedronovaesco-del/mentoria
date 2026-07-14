@@ -3,9 +3,12 @@ export interface QuizAnswers {
   revenue?: string;
   budget?: string;
   target?: string;
-  challenge?: string;
   digital_level?: string;
+  challenge?: string;
+  motivation?: string;
   time?: string;
+  ethics?: string;
+  readiness?: string;
 }
 
 export interface Profile {
@@ -17,44 +20,43 @@ export interface Profile {
 
 export function getProfile(answers: QuizAnswers): Profile {
   const rev = answers.revenue || "";
-  if (rev === "Ainda não faturei")
+  if (rev === "R$ 0 – ainda não faturo")
     return {
       icon: "🌱",
-      badge: "🚀 Perfil: Iniciante com potencial",
-      title: "Você está pronto para começar!",
-      msg: "Identificamos que você está no início da jornada. Entrar com o método certo desde o começo evita os erros que custam meses de resultado. Na sua call, Pedro vai montar um plano do zero especialmente para você.",
+      badge: "🚀 Profile: Beginner with potential",
+      title: "You're ready to get started!",
+      msg: "We identified that you're at the start of your journey. Starting with the right method from day one avoids the mistakes that cost months of results. In your call, Pedro will build a plan from scratch specifically for you.",
     };
-  if (rev === "Menos de R$ 10.000/mês")
+  if (rev === "Até R$ 2.000" || rev === "R$ 2.000 a R$ 5.000")
     return {
       icon: "🔥",
-      badge: "📦 Perfil: Em crescimento",
-      title: "Você está no momento certo!",
-      msg: "Você já tem resultado, mas o próximo nível exige estrutura e sistema. Na sua call diagnóstica, vamos identificar o gargalo exato que está travando seu crescimento e montar o plano para escalar.",
+      badge: "📦 Profile: Growing",
+      title: "You're at the right moment!",
+      msg: "You already have results, but the next level requires structure and system. In your diagnostic call, we'll identify the exact bottleneck holding back your growth and build the plan to scale.",
     };
-  if (rev === "R$ 10.000 a R$ 50.000/mês")
+  if (rev === "R$ 5.000 a R$ 15.000")
     return {
       icon: "⚡",
-      badge: "📈 Perfil: Em escala",
-      title: "Hora de escalar de verdade!",
-      msg: "Com esse faturamento, você tem tração real. Falta sistema e estrutura para escalar sem aumentar o caos. Na sua call vamos mapear as alavancas certas para chegar ao próximo patamar.",
+      badge: "📈 Profile: Scaling",
+      title: "Time to really scale!",
+      msg: "With this revenue, you have real traction. What's missing is system and structure to scale without adding more chaos. In your call, we'll map out the right levers to reach the next level.",
     };
   return {
     icon: "🏆",
-    badge: "💎 Perfil: Player avançado",
-    title: "Hora de dominar o mercado!",
-    msg: "Você já tem uma operação rodando. O foco agora é otimização, previsibilidade e posicionamento premium para proteger e expandir sua margem com consistência.",
+    badge: "💎 Profile: Advanced player",
+    title: "Time to dominate the market!",
+    msg: "You already have an operation running. The focus now is optimization, predictability, and premium positioning to protect and grow your margin consistently.",
   };
 }
 
 export function inferNiche(answers: QuizAnswers): string {
   const ch = answers.challenge || "";
-  const gol = answers.goal || "";
-  if (ch === "Tráfego caro ou ROI baixo") return "Tráfego Pago";
-  if (ch === "Não converto visitantes em clientes") return "Copywriting & Funis";
-  if (ch === "Não consigo escalar a operação") return "Consultoria de Negócios";
-  if (gol === "Construir autoridade e marca") return "Social Media";
-  if (gol === "Começar a vender no digital") return "Marketing Digital";
-  if (gol === "Reduzir custos e melhorar ROI") return "Tráfego Pago";
-  if (gol === "Aumentar o faturamento atual") return "Vendas & Comercial";
+  const goal = answers.goal || "";
+  if (ch.startsWith("Tenho audiência")) return "Copywriting & Funis";
+  if (ch.startsWith("Não consigo atrair")) return "Tráfego Pago";
+  if (ch.startsWith("Já vendo, mas não consigo escalar")) return "Consultoria de Negócios";
+  if (ch.startsWith("Falta consistência")) return "Consultoria de Negócios";
+  if (goal.startsWith("Faturo bem")) return "Consultoria de Negócios";
+  if (goal.startsWith("Já faturo, mas travei")) return "Tráfego Pago";
   return "Marketing Digital";
 }

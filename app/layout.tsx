@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://pedronovaes.co"
   ),
-  title: "Pedro Novaes | Call Diagnóstica Gratuita",
+  title: "Pedro Novaes | Free Diagnostic Call",
   description:
-    "Descubra em 45 minutos por que o seu negócio digital não escala. Saia com um plano claro para mudar isso essa semana.",
+    "Discover in 45 minutes why your digital business isn't scaling. Walk away with a clear plan to change that this week.",
   icons: { icon: "/images/logo.png", apple: "/images/logo.png" },
 };
 

@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const LINKS = [
-  { href: "#expert", label: "Sobre" },
-  { href: "#alunos", label: "Resultados" },
-  { href: "#para-quem", label: "Para quem é" },
-  { href: "/quiz", label: "Diagnóstico" },
-  { href: "#cta", label: "Agendar call" },
+  { href: "#expert", label: "About" },
+  { href: "#alunos", label: "Results" },
+  { href: "#para-quem", label: "Who it's for" },
+  { href: "/quiz", label: "Diagnosis" },
+  { href: "#cta", label: "Book a call" },
 ];
 
 export function Footer() {
@@ -33,7 +33,7 @@ export function Footer() {
         </div>
 
         <span className="text-xs text-white/30">
-          © 2026 Pedro Novaes · Mercado digital, resultados reais.
+          © 2026 Pedro Novaes · Digital business, real results.
         </span>
       </div>
     </footer>

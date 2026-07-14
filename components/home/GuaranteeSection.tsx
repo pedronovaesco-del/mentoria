@@ -11,15 +11,15 @@ export function GuaranteeSection() {
               className="mb-3 font-grotesk font-bold text-[#34D399]"
               style={{ fontSize: "var(--fs-h3)", letterSpacing: "var(--ls-h3)" }}
             >
-              Garantia de valor: você não sai de mãos vazias
+              Value guarantee: you don&apos;t walk away empty-handed
             </h3>
             <p className="text-body-color" style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-              Se você sair da call diagnóstica sem pelo menos{" "}
-              <strong className="text-white">3 insights acionáveis e específicos</strong> pro
-              seu negócio, me manda uma mensagem e eu marco uma segunda sessão, sem nenhum
-              custo. Simples assim.
+              If you leave the diagnostic call without at least{" "}
+              <strong className="text-white">3 actionable, specific insights</strong> for
+              your business, message me and I&apos;ll schedule a second session, at no cost.
+              It&apos;s that simple.
               <br />
-              <br />A call é gratuita. O valor que você leva dela, não é.
+              <br />The call is free. The value you get from it isn&apos;t.
             </p>
           </div>
         </div>

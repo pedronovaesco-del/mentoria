@@ -7,88 +7,92 @@ export function PasSection() {
     <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--prose-w)">
         <Reveal>
-          <SectionTag>O diagnóstico da realidade</SectionTag>
+          <SectionTag>The reality diagnosis</SectionTag>
         </Reveal>
         <Reveal delay={1}>
           <SectionTitle className="max-w-full">
-            O problema não é só o mês que fechou no vermelho.
-            <br />É pra onde isso te leva se nada mudar.
+            The problem isn&apos;t just the month that closed in the red.
+            <br />It&apos;s where that leads if nothing changes.
           </SectionTitle>
         </Reveal>
 
         <Reveal delay={2}>
           <div className="mt-14">
-            <PasBlock variant="red" title="🔴 O cenário que você conhece de cor">
+            <PasBlock variant="red" title="🔴 The scene you know by heart">
               <p>
-                São 23h. A casa dormiu. Você passou o dia inteiro trocando criativo, mexendo em
-                público, reescrevendo copy. Gastou mais R$ 500 em tráfego. Abre o painel, o
-                coração acelera um pouco antes do número carregar, e lá está:{" "}
-                <strong className="text-white">ROI 0.6. De novo.</strong> Você fecha o notebook
-                com aquele nó no estômago e a mesma pergunta insistente. Não é{" "}
-                <em>&quot;o que eu faço amanhã?&quot;</em>. É a pior de todas:{" "}
+                It&apos;s 11pm. The house is asleep. You spent the whole day swapping
+                creatives, tweaking audiences, rewriting copy. Spent another R$500 on traffic.
+                You open the dashboard, your heart races a little before the number loads, and
+                there it is:{" "}
+                <strong className="text-white">ROI 0.6. Again.</strong> You close the laptop
+                with that knot in your stomach and the same nagging question. It&apos;s not{" "}
+                <em>&quot;what do I do tomorrow?&quot;</em>. It&apos;s the worst one of all:{" "}
                 <strong className="text-white">
-                  &quot;por que nada do que eu faço funciona?&quot;
+                  &quot;why doesn&apos;t anything I do work?&quot;
                 </strong>
               </p>
             </PasBlock>
 
-            <PasBlock variant="orange" title="🟠 O dinheiro é só a parte visível do prejuízo">
+            <PasBlock variant="orange" title="🟠 Money is just the visible part of the damage">
               <p>
-                Some o que você já enterrou em tráfego que não voltou. Some os cursos que você
-                comprou achando que <em>o próximo</em> seria o que faltava. Mas o rombo de
-                verdade não aparece no extrato:
+                Add up what you&apos;ve already buried in traffic that never came back. Add up
+                the courses you bought thinking <em>the next one</em> would be the missing
+                piece. But the real damage doesn&apos;t show up on your statement:
               </p>
               <p>
-                <strong className="hl">Financeiro:</strong> cada dia rodando no escuro é
-                orçamento queimado pra &quot;testar&quot; o que um diagnóstico resolveria em
-                minutos. <strong className="hl">Tempo:</strong> são as horas, e os meses, que
-                você nunca mais recupera, presos num ciclo de tentativa e erro que não vira
-                aprendizado, vira desgaste.
+                <strong className="hl">Financial:</strong> every day running blind is budget
+                burned &quot;testing&quot; what a diagnosis would solve in minutes.{" "}
+                <strong className="hl">Time:</strong> it&apos;s the hours, and the months, you&apos;ll
+                never get back — trapped in a trial-and-error cycle that doesn&apos;t turn into
+                learning, it turns into burnout.
               </p>
               <p>
-                <strong className="hl">Emocional:</strong> a ansiedade de abrir o painel toda
-                manhã, a culpa de não estar presente enquanto a cabeça está na campanha, a
-                vergonha silenciosa de postar &quot;bora&quot; enquanto por dentro você não sabe
-                se o mês fecha. <strong className="hl">Oportunidade:</strong> enquanto você
-                patina, o concorrente que achou o método está escalando com a <em>sua</em> verba
-                de anúncio ficando mais cara. O mercado não te espera.
+                <strong className="hl">Emotional:</strong> the anxiety of opening the
+                dashboard every morning, the guilt of not being present while your head is on
+                the campaign, the silent shame of posting &quot;let&apos;s go&quot; while
+                inside you don&apos;t know if the month will close.{" "}
+                <strong className="hl">Opportunity:</strong> while you spin your wheels, the
+                competitor who found the method is scaling — and <em>your</em> ad spend keeps
+                getting more expensive. The market doesn&apos;t wait for you.
               </p>
             </PasBlock>
 
-            <PasBlock variant="yellow" title="🟡 O custo composto de continuar &quot;quase acertando&quot;">
+            <PasBlock variant="yellow" title="🟡 The compound cost of staying &quot;almost there&quot;">
               <p>
-                Aqui está a parte que quase ninguém para pra calcular: isso não fica parado.{" "}
-                <strong className="text-white">Piora sozinho.</strong> Cada semana sem estrutura
-                é mais um pico de esperança seguido de mais uma frustração, e a cada ciclo, um
-                pedaço da sua confiança de que <em>dá pra virar</em> vai embora. O risco real
-                não é fechar mais um mês ruim. É você, daqui a seis meses, olhar pra trás e
-                perceber que trabalhou o dobro, gastou mais, e está <em>exatamente</em> no
-                mesmo lugar, só que mais cansado e mais descrente.{" "}
+                Here&apos;s the part almost nobody stops to calculate: this doesn&apos;t stay
+                still.{" "}
+                <strong className="text-white">It gets worse on its own.</strong> Every week
+                without structure is one more spike of hope followed by one more frustration,
+                and with each cycle, a piece of your belief that <em>things can turn around</em>{" "}
+                slips away. The real risk isn&apos;t closing one more bad month. It&apos;s you,
+                six months from now, looking back and realizing you worked twice as hard, spent
+                more, and are in <em>exactly</em> the same place — just more tired and more
+                disillusioned.{" "}
                 <strong className="text-white">
-                  É assim que gente boa desiste: não de uma vez, mas um mês frustrante de cada
-                  vez.
+                  That&apos;s how good people give up: not all at once, but one frustrating
+                  month at a time.
                 </strong>
               </p>
             </PasBlock>
 
-            <PasBlock variant="green" title="🟢 E o mais injusto de tudo">
+            <PasBlock variant="green" title="🟢 And the most unfair part of all">
               <p>
-                Não é falta de esforço: você tem esforço de sobra.{" "}
-                <strong className="text-white">É falta de método.</strong> E método não se
-                conserta trabalhando mais horas, comprando mais um curso ou trocando o criativo
-                pela 40ª vez. Se conserta enxergando o que está{" "}
-                <strong className="text-white">invisível pra você agora</strong>, porque está
-                dentro da sua própria operação, no ponto cego que só quem olha de fora consegue
-                apontar.
+                It&apos;s not a lack of effort — you have plenty of that.{" "}
+                <strong className="text-white">It&apos;s a lack of method.</strong> And
+                method doesn&apos;t get fixed by working more hours, buying another course, or
+                swapping the creative for the 40th time. It gets fixed by seeing what&apos;s{" "}
+                <strong className="text-white">invisible to you right now</strong>, because
+                it&apos;s inside your own operation, in the blind spot only an outside eye can
+                point to.
               </p>
             </PasBlock>
 
-            <PasBlock variant="blue" title="🔵 A porta de saída existe, e tem nome">
+            <PasBlock variant="blue" title="🔵 The way out exists, and it has a name">
               <p>
-                Existe um padrão nos negócios digitais que escalam com consistência, e ele não
-                tem nada a ver com &quot;produto vencedor sortudo&quot;. É estrutura. É
-                exatamente esse ponto cego que a call diagnóstica foi feita pra iluminar: em 45
-                minutos, com a sua operação aberta na tela.
+                There&apos;s a pattern in digital businesses that scale consistently, and it
+                has nothing to do with a &quot;lucky winning product.&quot; It&apos;s
+                structure. That&apos;s exactly the blind spot the diagnostic call was built to
+                shine a light on: in 45 minutes, with your operation open on screen.
               </p>
             </PasBlock>
           </div>
@@ -97,13 +101,13 @@ export function PasSection() {
         <Reveal delay={3}>
           <HookBox>
             <p>
-              Antes de você se culpar de novo:{" "}
+              Before you blame yourself again:{" "}
               <strong>
-                o verdadeiro motivo do seu ROI travar no mesmo número há meses quase nunca tem a
-                ver com criativo ruim ou público errado
+                the real reason your ROI has been stuck at the same number for months almost
+                never has to do with bad creative or the wrong audience
               </strong>
-              : a maioria mexe justo na alavanca que não move nada, e é por isso que se esforça
-              mais e continua parada.
+              : most people pull exactly the lever that doesn&apos;t move anything, which is
+              why they push harder and stay stuck.
             </p>
           </HookBox>
         </Reveal>
