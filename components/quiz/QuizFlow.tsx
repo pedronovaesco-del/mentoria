@@ -7,19 +7,21 @@ import { COUNTRIES } from "@/lib/data/countries";
 import { EASE_ENTRANCE } from "@/lib/motion/variants";
 import { PhoneInput } from "@/components/ui/PhoneInput";
 import { getProfile, type QuizAnswers } from "@/lib/quiz/profile";
-import { QUESTIONS } from "@/lib/quiz/questions";
+import { getQualification, QUESTIONS } from "@/lib/quiz/questions";
 import { QuizResult } from "./QuizResult";
 
 /**
- * Fluxo unificado: contato (nome, e-mail, telefone) e perguntas do quiz são
- * telas da MESMA sequência contínua, sem separação visual, de rota ou de
- * indicador de posição entre elas.
+ * Fluxo unificado: página de qualificação (só copy, sem pergunta), contato
+ * (nome, e-mail, telefone) e perguntas de mapeamento são telas da MESMA
+ * sequência contínua, sem separação visual, de rota ou de indicador de
+ * posição entre elas.
  *
  * Pra mudar o número de perguntas, edite QUESTIONS em lib/quiz/questions.ts
  * -- TOTAL_STEPS se ajusta sozinho. Pra mudar o destino dos dados, edite
  * submitLeadCapture/submitQuizAnswers em lib/actions/leads.ts.
  */
-const CONTACT_STEPS = 3; // 1: nome · 2: e-mail · 3: telefone
+const QUALIFICATION_STEP = 1; // só copy de aquecimento/qualificação, sem pergunta
+const CONTACT_STEPS = 3; // 2: nome · 3: e-mail · 4: telefone
 
 /** Tempo (ms) que a opção escolhida fica destacada antes de avançar. */
 const ADVANCE_DELAY = 380;
@@ -102,7 +104,7 @@ export function QuizFlow() {
   }, []);
 
   const { step } = quiz;
-  const questionIndex = step - CONTACT_STEPS - 1;
+  const questionIndex = step - QUALIFICATION_STEP - CONTACT_STEPS - 1;
   const question =
     questionIndex >= 0 && questionIndex < QUESTIONS.length ? QUESTIONS[questionIndex] : undefined;
 
@@ -136,27 +138,27 @@ export function QuizFlow() {
     e.preventDefault();
     setErrors({});
 
-    if (step === 1) {
-      if (quiz.name.trim().length < 3) {
-        setErrors({ name: "Informe seu nome completo." });
-        return;
-      }
-      advance();
-      return;
-    }
-
     if (step === 2) {
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(quiz.email.trim())) {
-        setErrors({ email: "Informe um e-mail válido." });
+      if (quiz.name.trim().length < 3) {
+        setErrors({ name: "Enter your full name." });
         return;
       }
       advance();
       return;
     }
 
-    // step === 3: telefone
+    if (step === 3) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(quiz.email.trim())) {
+        setErrors({ email: "Enter a valid email." });
+        return;
+      }
+      advance();
+      return;
+    }
+
+    // step === 4: telefone
     if (phoneDigits.length < requiredDigits) {
-      setErrors({ phone: "Número incompleto para o país selecionado." });
+      setErrors({ phone: "Incomplete number for the selected country." });
       return;
     }
     const nextState = advance();
@@ -215,6 +217,7 @@ export function QuizFlow() {
       phone: `${state.ddi} ${state.phone}`,
       email: state.email,
       answers: state.answers,
+      qualification: getQualification(state.answers),
     });
     localStorage.removeItem(STORAGE_KEY);
     setDone(true);
@@ -226,15 +229,17 @@ export function QuizFlow() {
     quiz.answers.revenue,
     quiz.answers.budget,
     quiz.answers.target,
-    quiz.answers.challenge,
     quiz.answers.digital_level,
+    quiz.answers.challenge,
+    quiz.answers.motivation,
     quiz.answers.time,
+    quiz.answers.ethics,
+    quiz.answers.readiness,
   ].filter((v): v is string => Boolean(v));
 
   const committed = question ? quiz.answers[question.key] : undefined;
   const displayed = pendingChoice ?? committed;
 
-  const fieldLabelClass = "text-[11px] font-bold uppercase tracking-[0.8px] text-white/40";
   const fieldInputClass =
     "w-full rounded-sm border border-white/12 bg-white/6 px-4 py-3.5 text-base text-white outline-none focus:border-blue/55 focus:bg-blue/5";
   const continueBtnClass =
@@ -251,21 +256,35 @@ export function QuizFlow() {
         <div className="mb-8 text-center">
           <div className="mb-5 inline-flex items-center gap-1.5 rounded-pill border border-blue/28 bg-blue/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[1.2px] text-blue-light">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-success" />
-            Diagnóstico gratuito
+            Free diagnosis
           </div>
           <h1
             className="mb-3 font-grotesk font-bold leading-[1.1]"
             style={{ fontSize: "clamp(26px,5vw,40px)", letterSpacing: "-1.5px" }}
           >
-            Descubra seu{" "}
+            This quiz{" "}
             <span className="bg-gradient-to-br from-blue-light via-blue to-blue-deep bg-clip-text text-transparent">
-              perfil digital
+              isn&apos;t for everyone
             </span>
           </h1>
-          <p className="mx-auto max-w-[460px] text-base leading-[1.7] text-white/50">
-            Responda em menos de 2 minutos e receba um diagnóstico personalizado, com vaga
-            garantida na call estratégica gratuita.
-          </p>
+          <div className="mx-auto max-w-[460px] space-y-3 text-base leading-[1.7] text-white/50">
+            <p>
+              It was made for people tired of spinning their wheels online — testing formula
+              after formula, consuming free content, and still watching the month end without
+              predictable revenue.
+            </p>
+            <p>
+              In less than 2 minutes, you&apos;ll answer a few questions that map out exactly
+              where you are today and what&apos;s holding you back from getting where you
+              want. At the end, I&apos;ll know if it makes sense for us to talk — and
+              you&apos;ll walk away with clarity on your next step, whether you go ahead or
+              not.
+            </p>
+            <p className="font-medium text-white/70">
+              No fluff. No right or wrong answer. Just the truth about where you are.
+              👉 Answer honestly — you&apos;re the one who&apos;ll reap the results. Let&apos;s go?
+            </p>
+          </div>
         </div>
       )}
 
@@ -276,6 +295,19 @@ export function QuizFlow() {
               <QuizResult key="result" profile={profile} summary={summary} />
             ) : step === 1 ? (
               <motion.div
+                key="step-qualify"
+                className="quiz-step"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.35, ease: EASE_ENTRANCE }}
+              >
+                <button type="button" onClick={() => advance()} className={continueBtnClass}>
+                  Let&apos;s go
+                </button>
+              </motion.div>
+            ) : step === 2 ? (
+              <motion.div
                 key="step-name"
                 className="quiz-step"
                 initial={{ opacity: 0, x: 20 }}
@@ -284,23 +316,28 @@ export function QuizFlow() {
                 transition={{ duration: 0.35, ease: EASE_ENTRANCE }}
               >
                 <form onSubmit={handleContactSubmit} className="flex flex-col gap-1.5">
-                  <label className={fieldLabelClass}>Nome completo *</label>
+                  <div
+                    className="mb-4 font-grotesk font-bold leading-[1.3]"
+                    style={{ fontSize: "clamp(19px,3.5vw,24px)" }}
+                  >
+                    To start, what&apos;s your name?
+                  </div>
                   <input
                     autoFocus
                     type="text"
                     value={quiz.name}
                     onChange={(e) => setQuiz((q) => ({ ...q, name: e.target.value }))}
-                    placeholder="Seu nome completo"
+                    placeholder="First and last name"
                     autoComplete="name"
                     className={fieldInputClass}
                   />
                   <span className="mt-[-2px] block min-h-4 text-xs text-danger">{errors.name}</span>
                   <button type="submit" className={continueBtnClass}>
-                    Continuar
+                    Continue
                   </button>
                 </form>
               </motion.div>
-            ) : step === 2 ? (
+            ) : step === 3 ? (
               <motion.div
                 key="step-email"
                 className="quiz-step"
@@ -310,23 +347,31 @@ export function QuizFlow() {
                 transition={{ duration: 0.35, ease: EASE_ENTRANCE }}
               >
                 <form onSubmit={handleContactSubmit} className="flex flex-col gap-1.5">
-                  <label className={fieldLabelClass}>E-mail *</label>
+                  <div
+                    className="font-grotesk font-bold leading-[1.3]"
+                    style={{ fontSize: "clamp(19px,3.5vw,24px)" }}
+                  >
+                    What&apos;s your best email?
+                  </div>
+                  <p className="mb-4 text-sm text-white/45">
+                    That&apos;s where I&apos;ll send your diagnosis and materials.
+                  </p>
                   <input
                     autoFocus
                     type="email"
                     value={quiz.email}
                     onChange={(e) => setQuiz((q) => ({ ...q, email: e.target.value }))}
-                    placeholder="seu@email.com"
+                    placeholder="you@email.com"
                     autoComplete="email"
                     className={fieldInputClass}
                   />
                   <span className="mt-[-2px] block min-h-4 text-xs text-danger">{errors.email}</span>
                   <button type="submit" className={continueBtnClass}>
-                    Continuar
+                    Continue
                   </button>
                 </form>
               </motion.div>
-            ) : step === 3 ? (
+            ) : step === 4 ? (
               <motion.div
                 key="step-phone"
                 className="quiz-step"
@@ -336,7 +381,15 @@ export function QuizFlow() {
                 transition={{ duration: 0.35, ease: EASE_ENTRANCE }}
               >
                 <form onSubmit={handleContactSubmit} className="flex flex-col gap-1.5">
-                  <label className={fieldLabelClass}>WhatsApp *</label>
+                  <div
+                    className="font-grotesk font-bold leading-[1.3]"
+                    style={{ fontSize: "clamp(19px,3.5vw,24px)" }}
+                  >
+                    What&apos;s your WhatsApp number?
+                  </div>
+                  <p className="mb-4 text-sm text-white/45">
+                    This is how we unlock your next step.
+                  </p>
                   <PhoneInput
                     value={quiz.phone}
                     onChange={(phone) => setQuiz((q) => ({ ...q, phone }))}
@@ -345,7 +398,7 @@ export function QuizFlow() {
                   />
                   <span className="mt-[-2px] block min-h-4 text-xs text-danger">{errors.phone}</span>
                   <button type="submit" className={continueBtnClass}>
-                    Continuar
+                    Continue
                   </button>
                 </form>
               </motion.div>
@@ -414,7 +467,7 @@ export function QuizFlow() {
                 animate={{ opacity: 1 }}
                 className="quiz-step py-10 text-center text-[15px] text-white/40"
               >
-                Processando seu diagnóstico…
+                Processing your diagnosis…
               </motion.div>
             )}
           </AnimatePresence>
