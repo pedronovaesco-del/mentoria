@@ -21,6 +21,10 @@ export interface QuizLead {
   challenge: string | null;
   digital_level: string | null;
   time: string | null;
+  motivation: string | null;
+  ethics: string | null;
+  readiness: string | null;
+  qualification: string | null;
   niche: string | null;
   source: string | null;
   status: QuizStatus;
