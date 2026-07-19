@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const LINKS = [
-  { href: "#expert", label: "About" },
-  { href: "#alunos", label: "Results" },
-  { href: "#para-quem", label: "Who it's for" },
-  { href: "/quiz", label: "Diagnosis" },
-  { href: "#cta", label: "Book a call" },
+  { href: "#expert", label: "Sobre" },
+  { href: "#alunos", label: "Resultados" },
+  { href: "#para-quem", label: "Para quem é" },
+  { href: "/quiz", label: "Diagnóstico" },
+  { href: "#cta", label: "Agende uma call" },
 ];
 
 export function Footer() {
@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="border-t border-white/[.06] bg-ink py-9">
       <div className="max-w-(--breakpoint-xl) mx-auto px-[var(--edge-pad)] flex flex-wrap items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-2.5 no-underline">
-          <Image src="/images/logo.png" alt="Pedro Novaes logo" width={32} height={32} loading="lazy" />
+          <Image src="/images/logo.png" alt="Logo Pedro Novaes" width={32} height={32} loading="lazy" />
           <span className="flex flex-col leading-none gap-px">
             <span className="font-serif italic text-[9px] uppercase tracking-[2px] text-white/40">
               Pedro
@@ -33,7 +33,7 @@ export function Footer() {
         </div>
 
         <span className="text-xs text-white/30">
-          © 2026 Pedro Novaes · Digital business, real results.
+          © 2026 Pedro Novaes · Negócio digital, resultados reais.
         </span>
       </div>
     </footer>

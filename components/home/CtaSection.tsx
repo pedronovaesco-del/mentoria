@@ -8,25 +8,25 @@ export function CtaSection() {
       <Reveal>
         <Glass className="mx-auto max-w-[800px] rounded-lg p-9 sm:px-12 sm:py-[72px]">
           <span className="mb-5 block text-center text-[11px] font-semibold uppercase tracking-[2.5px] text-blue-light">
-            100% free · 45 minutes · No commitment
+            100% gratuito · 45 minutos · Sem compromisso
           </span>
           <h2
             className="font-grotesk font-bold leading-[1.05] mb-5"
             style={{ fontSize: "var(--fs-h2)", letterSpacing: "var(--ls-h2)" }}
           >
-            Ready to stop working harder
+            Pronto pra parar de trabalhar mais
             <br />
-            <span className="text-3d-gradient">and start earning more?</span>
+            <span className="text-3d-gradient">e começar a ganhar mais?</span>
           </h2>
           <p className="mx-auto mb-10 max-w-[520px] text-[16px] leading-[1.8] text-white/68">
-            Answer 7 quick questions, secure your spot, and get a personalized strategic
-            diagnosis for your digital business. Pedro Novaes will reach out within 2 hours.
+            Responda 7 perguntas rápidas, garanta sua vaga e receba um diagnóstico estratégico
+            personalizado pro seu negócio digital. Pedro Novaes vai te chamar em até 2 horas.
             <br />
-            <br />The difference between this month and the next is{" "}
-            <strong className="text-white">a 2-minute decision.</strong>
+            <br />A diferença entre esse mês e o próximo é{" "}
+            <strong className="text-white">uma decisão de 2 minutos.</strong>
           </p>
           <CTAButton href="/quiz" variant="primary" className="!text-base !py-[18px] !px-11">
-            Secure my free diagnostic call
+            Garantir minha call de diagnóstico gratuita
           </CTAButton>
         </Glass>
       </Reveal>

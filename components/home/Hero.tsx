@@ -4,9 +4,9 @@ import { CTAButton } from "@/components/ui/CTAButton";
 import { Reveal } from "@/components/ui/Reveal";
 
 const TRUST_ITEMS = [
-  { icon: "✅", label: "100% free" },
-  { icon: "🇧🇷", label: "Brazilian market" },
-  { icon: "⚡", label: "Real action plan" },
+  { icon: "✅", label: "100% gratuito" },
+  { icon: "🇧🇷", label: "Mercado brasileiro" },
+  { icon: "⚡", label: "Plano de ação real" },
 ];
 
 export function Hero() {
@@ -38,7 +38,7 @@ export function Hero() {
               letterSpacing: "var(--ls-h1)",
             }}
           >
-            You increase the budget
+            Você aumenta a verba
           </span>
           <span
             className="text-3d block text-white"
@@ -48,7 +48,7 @@ export function Hero() {
               letterSpacing: "var(--ls-h1)",
             }}
           >
-            and ROI crashes
+            e o ROI despenca
           </span>
           <span
             className="text-3d-gradient block"
@@ -58,7 +58,7 @@ export function Hero() {
               letterSpacing: "var(--ls-h1)",
             }}
           >
-            …I&apos;ll show you why
+            …eu te mostro por quê
           </span>
         </Reveal>
 
@@ -67,25 +67,25 @@ export function Hero() {
           as="p"
           className="mx-auto mb-10 max-w-(--prose-w) text-[clamp(17px,2.3vw,21px)] font-light leading-[1.75] text-white/65"
         >
-          In <strong className="font-semibold text-white">45 minutes</strong>{" "}
-          I&apos;ll show you the
-          invisible bottleneck holding back your scale. A free, straight-to-the-point call
-          pinpoints exactly where your digital business is leaking money. You&apos;ll walk away with the{" "}
+          Em <strong className="font-semibold text-white">45 minutos</strong>{" "}
+          eu te mostro o
+          gargalo invisível que está travando sua escala. Uma call gratuita e direta ao ponto
+          aponta exatamente onde seu negócio digital está vazando dinheiro. Você sai com o{" "}
           <strong className="font-semibold text-white">
-            plan to fix it this week
+            plano pra corrigir isso essa semana
           </strong>
-          , no more courses to buy.
+          , sem precisar comprar mais nenhum curso.
         </Reveal>
 
         <Reveal delay={3} className="mb-10 flex flex-col items-center gap-3.5">
           <CTAButton href="/quiz" variant="primary" className="!text-[15px] !py-4 !px-9">
-            Find the bottleneck blocking my scale
+            Encontrar o gargalo que trava minha escala
           </CTAButton>
           <a
             href="#como-funciona"
             className="text-[13px] text-white/35 underline underline-offset-2"
           >
-            prefer to understand first? See how it works ↓
+            prefere entender antes? Veja como funciona ↓
           </a>
         </Reveal>
 

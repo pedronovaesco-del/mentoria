@@ -31,13 +31,13 @@ export async function submitLeadCapture(
   const errors: LeadCaptureErrors = {};
 
   if (input.name.trim().length < 3) {
-    errors.name = "Enter your full name.";
+    errors.name = "Digite seu nome completo.";
   }
   if (input.phoneDigits.length < input.requiredDigits) {
-    errors.phone = "Incomplete number for the selected country.";
+    errors.phone = "Número incompleto para o país selecionado.";
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.email.trim())) {
-    errors.email = "Enter a valid email.";
+    errors.email = "Digite um e-mail válido.";
   }
   if (Object.keys(errors).length > 0) {
     return { ok: false, errors };

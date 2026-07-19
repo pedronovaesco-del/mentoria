@@ -2,10 +2,10 @@ import { HookBox, SectionTag } from "@/components/ui/SectionText";
 import { Reveal } from "@/components/ui/Reveal";
 
 const VISION_ITEMS = [
-  { icon: "📈", label: "Predictable revenue" },
-  { icon: "⏱️", label: "Operation that runs without depending on you" },
-  { icon: "🎯", label: "Consistent ROI every month" },
-  { icon: "🧠", label: "Exact clarity on where to invest" },
+  { icon: "📈", label: "Faturamento previsível" },
+  { icon: "⏱️", label: "Operação que roda sem depender de você" },
+  { icon: "🎯", label: "ROI consistente todo mês" },
+  { icon: "🧠", label: "Clareza exata de onde investir" },
 ];
 
 export function VisionSection() {
@@ -13,22 +13,22 @@ export function VisionSection() {
     <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)] text-center">
       <div className="mx-auto max-w-(--container-w)">
         <Reveal>
-          <SectionTag>What&apos;s on the other side</SectionTag>
+          <SectionTag>O que tem do outro lado</SectionTag>
         </Reveal>
         <Reveal delay={1}>
           <p
             className="mx-auto mb-10 max-w-[760px] font-serif italic text-white/90"
             style={{ fontSize: "clamp(22px,3.5vw,36px)", lineHeight: 1.6 }}
           >
-            Imagine opening the dashboard on day 1 of the month and already knowing, with a
-            small margin of error, how much you&apos;re going to make. Campaigns running
-            consistently. No hunting for a winning product every week. Just{" "}
-            <strong className="text-blue">an operation with real predictability</strong>, and
-            you in control of it.
+            Imagine abrir o dashboard no dia 1 do mês e já saber, com uma margem de erro
+            pequena, quanto você vai faturar. Campanhas rodando de forma consistente. Sem caçar
+            produto da sorte toda semana. Só{" "}
+            <strong className="text-blue">uma operação com previsibilidade real</strong>, e
+            você no controle dela.
             <br />
             <br />
-            This isn&apos;t luck. It&apos;s what happens when you stop guessing and start{" "}
-            <strong className="text-3d-gradient">following a system</strong>.
+            Isso não é sorte. É o que acontece quando você para de chutar e passa a{" "}
+            <strong className="text-3d-gradient">seguir um sistema</strong>.
           </p>
         </Reveal>
         <Reveal delay={2}>
@@ -43,14 +43,13 @@ export function VisionSection() {
         <Reveal delay={3}>
           <HookBox>
             <p className="text-center">
-              Notice what really changes:{" "}
+              Repare no que realmente muda:{" "}
               <strong>
-                it&apos;s not just about no longer depending on a &quot;lucky winning
-                product&quot; every week
+                não é só deixar de depender de um &quot;produto da sorte&quot; toda
+                semana
               </strong>
-              : it&apos;s opening the dashboard on day 1 of the month already knowing, without
-              that knot in your stomach, how much you&apos;re going to make. That peace of
-              mind starts with a 45-minute call.
+              : é abrir o dashboard no dia 1 do mês já sabendo, sem aquele nó no estômago,
+              quanto você vai faturar. Essa tranquilidade começa com uma call de 45 minutos.
             </p>
           </HookBox>
         </Reveal>

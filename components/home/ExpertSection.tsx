@@ -4,10 +4,10 @@ import { StatCard } from "@/components/ui/Glass";
 import { Reveal } from "@/components/ui/Reveal";
 
 const STATS = [
-  { value: "8+", label: "revenue digits" },
-  { value: "20", label: "years old" },
-  { value: "33+", label: "active mentees" },
-  { value: "4.9★", label: "average rating" },
+  { value: "8+", label: "dígitos de faturamento" },
+  { value: "20", label: "anos de idade" },
+  { value: "33+", label: "mentorados ativos" },
+  { value: "4.9★", label: "avaliação média" },
 ];
 
 export function ExpertSection() {
@@ -15,17 +15,17 @@ export function ExpertSection() {
     <section id="expert" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)] text-center">
       <div className="mx-auto max-w-(--prose-w)">
         <Reveal>
-          <SectionTag>Who&apos;s guiding you</SectionTag>
+          <SectionTag>Quem está te guiando</SectionTag>
         </Reveal>
         <Reveal delay={1}>
           <h2
             className="font-grotesk font-bold leading-[1.05] mb-5"
             style={{ fontSize: "var(--fs-h2)", letterSpacing: "var(--ls-h2)" }}
           >
-            I&apos;m <span className="text-3d-gradient">Pedro Novaes</span>
+            Eu sou <span className="text-3d-gradient">Pedro Novaes</span>
             <br />
             <span className="text-[0.75em] text-white/70">
-              and I sat exactly in the chair you&apos;re sitting in right now
+              e já sentei exatamente na cadeira em que você está agora
             </span>
           </h2>
         </Reveal>
@@ -61,7 +61,7 @@ export function ExpertSection() {
             >
               <Image
                 src="/images/expert/expert3.jpg"
-                alt="Pedro Novaes monitoring operations day to day"
+                alt="Pedro Novaes acompanhando operações no dia a dia"
                 width={960}
                 height={1280}
                 className="block h-auto w-full"
@@ -73,18 +73,18 @@ export function ExpertSection() {
 
         <Reveal delay={1}>
           <div className="mt-7 mb-4 inline-flex items-center gap-2 rounded-sm border border-blue/20 bg-blue/8 px-4 py-2 text-[13px] leading-[1.5] text-white/60">
-            📍 I started with no mentor, no capital, and results that swung wildly every week.
-            I learned the most expensive way possible: burning my own money on campaigns until
-            I understood what nobody had explained to me.
+            📍 Comecei sem mentor, sem capital, com resultados que oscilavam violentamente
+            toda semana. Aprendi da forma mais cara possível: queimando meu próprio dinheiro em
+            campanhas até entender o que ninguém tinha me explicado.
           </div>
         </Reveal>
 
         <Reveal delay={2}>
           <p className="mx-auto max-w-full text-body-color" style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-            At 20 years old, I crossed 7 figures in revenue in the digital market: an
-            operation 100% based in Brazil, my own product, and paid traffic. I don&apos;t
-            sell illusions: I deliver method, system, and clarity. Everything I teach was
-            tested first in my own operation, with my own money on the line.
+            Aos 20 anos, cruzei os 7 dígitos de faturamento no mercado digital: uma operação
+            100% brasileira, produto próprio e tráfego pago. Eu não vendo ilusão: eu entrego
+            método, sistema e clareza. Tudo que eu ensino foi testado primeiro na minha
+            própria operação, com meu próprio dinheiro em jogo.
           </p>
         </Reveal>
 
@@ -99,11 +99,13 @@ export function ExpertSection() {
         <Reveal delay={3}>
           <HookBox>
             <p className="text-center">
-              It was by making mistakes with my own money that I built{" "}
+              Foi errando com meu próprio dinheiro que eu construí{" "}
               <strong>
-                the 3-point check I now run on your structure in under 10 minutes of a call
+                a checagem de 3 pontos que hoje aplico na sua estrutura em menos de 10 minutos
+                de call
               </strong>
-              : the same one that revealed where Arthur was stuck before he hit R$1,000/day.
+              : a mesma que revelou onde o Arthur estava travado antes de ele bater
+              R$1.000/dia.
             </p>
           </HookBox>
         </Reveal>
@@ -114,17 +116,17 @@ export function ExpertSection() {
               className="mb-3.5 font-grotesk font-bold"
               style={{ fontSize: "var(--fs-h3)", letterSpacing: "var(--ls-h3)", lineHeight: 1.3 }}
             >
-              The mechanism of the solution
+              O mecanismo da solução
             </h3>
           </Reveal>
           <Reveal delay={1}>
             <p className="mx-auto max-w-full text-body-color" style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-              It&apos;s not luck, it&apos;s not a lucky winning product. It&apos;s{" "}
-              <strong className="text-white">structure</strong>: predictable ROI, an operation
-              that runs without depending on your mood that day, and you holding the{" "}
-              <strong className="text-white">2 or 3 levers</strong> that actually move
-              revenue. The diagnostic call exists to show you exactly where your structure has
-              holes, and which lever to pull first.
+              Não é sorte, não é produto da sorte. É{" "}
+              <strong className="text-white">estrutura</strong>: ROI previsível, uma operação
+              que roda sem depender do seu humor naquele dia, e você segurando as{" "}
+              <strong className="text-white">2 ou 3 alavancas</strong> que realmente movem o
+              faturamento. A call de diagnóstico existe pra te mostrar exatamente onde sua
+              estrutura tem furos, e qual alavanca puxar primeiro.
             </p>
           </Reveal>
         </div>
@@ -132,13 +134,13 @@ export function ExpertSection() {
         <Reveal delay={2}>
           <HookBox>
             <p className="text-center">
-              And here&apos;s the detail almost nobody sees:{" "}
+              E aqui está o detalhe que quase ninguém vê:{" "}
               <strong>
-                which 2 or 3 levers those are changes from operation to operation, and
-                they&apos;re rarely the ones you imagine.
+                quais são essas 2 ou 3 alavancas muda de operação pra operação, e raramente são
+                as que você imagina.
               </strong>{" "}
-              That&apos;s exactly what I isolate on your account in the first few minutes of
-              the call, so you stop spending energy on what doesn&apos;t move the needle.
+              É exatamente isso que eu isolo na sua conta nos primeiros minutos da call, pra
+              você parar de gastar energia no que não move o ponteiro.
             </p>
           </HookBox>
         </Reveal>

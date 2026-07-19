@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { QuizFlow } from "@/components/quiz/QuizFlow";
 
 export const metadata: Metadata = {
-  title: "Free Diagnosis | Pedro Novaes",
+  title: "Diagnóstico Gratuito | Pedro Novaes",
   description:
-    "Answer 7 questions and discover your digital profile. Secure your spot in the free strategic call with Pedro Novaes.",
+    "Responda 7 perguntas e descubra seu perfil digital. Garanta sua vaga na call estratégica gratuita com Pedro Novaes.",
   openGraph: {
-    title: "Free Diagnosis | Pedro Novaes",
+    title: "Diagnóstico Gratuito | Pedro Novaes",
     description:
-      "Answer 7 questions and discover your digital profile. Secure your spot in the free strategic call.",
+      "Responda 7 perguntas e descubra seu perfil digital. Garanta sua vaga na call estratégica gratuita.",
     images: ["/images/logo.png"],
   },
 };

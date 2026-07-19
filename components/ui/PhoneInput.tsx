@@ -62,7 +62,7 @@ export function PhoneInput({ value, onChange, ddi, onDdiChange }: PhoneInputProp
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="🔍  Search country..."
+                placeholder="🔍  Buscar país..."
                 autoComplete="off"
                 className="w-full rounded-sm border border-white/10 bg-white/5 px-3 py-2 text-sm text-white outline-none"
               />
@@ -70,7 +70,7 @@ export function PhoneInput({ value, onChange, ddi, onDdiChange }: PhoneInputProp
             <div className="max-h-[216px] overflow-y-auto">
               {filtered.length === 0 ? (
                 <div className="px-3.5 py-4 text-center text-sm text-white/40">
-                  No country found
+                  Nenhum país encontrado
                 </div>
               ) : (
                 filtered.map((c) => (

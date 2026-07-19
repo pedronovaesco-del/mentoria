@@ -1,10 +1,10 @@
 import { Reveal } from "@/components/ui/Reveal";
 
 const STATS = [
-  { value: "500+", label: <>diagnostic calls<br />completed</> },
-  { value: "33+", label: <>active<br />mentees</> },
-  { value: "R$80.3M+", label: <>revenue generated<br />by students</> },
-  { value: "4.9★", label: <>average rating<br />from mentees</> },
+  { value: "500+", label: <>calls de diagnóstico<br />realizadas</> },
+  { value: "33+", label: <>mentorados<br />ativos</> },
+  { value: "R$80.3M+", label: <>faturamento gerado<br />pelos alunos</> },
+  { value: "4.9★", label: <>avaliação média<br />dos mentorados</> },
 ];
 
 export function StatsBar() {

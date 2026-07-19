@@ -6,28 +6,28 @@ import { SectionTag } from "@/components/ui/SectionText";
 
 const FAQS = [
   {
-    q: "Is the call really free? Is there a catch?",
-    a: "Yes, 100% free and no catch. There's no mandatory pitch at the end, no pressure of any kind. The goal of the call is to understand where you are and deliver real value. If it makes sense to work together after that, we'll talk about it. If not, you walk away with a clear action plan and zero cost.",
+    q: "A call é mesmo gratuita? Tem pegadinha?",
+    a: "Sim, 100% gratuita e sem pegadinha. Não tem pitch obrigatório no final, nenhum tipo de pressão. O objetivo da call é entender onde você está e entregar valor real. Se fizer sentido trabalharmos juntos depois disso, a gente conversa sobre isso. Se não, você sai com um plano de ação claro e zero custo.",
   },
   {
-    q: "How long does the call last?",
-    a: "45 minutes. Enough time to map your business in depth, identify the specific bottlenecks, and lay out a practical action plan. It's not a pitch call. It's a real working session.",
+    q: "Quanto tempo dura a call?",
+    a: "45 minutos. Tempo suficiente pra mapear seu negócio em profundidade, identificar os gargalos específicos e traçar um plano de ação prático. Não é uma call de pitch. É uma sessão de trabalho real.",
   },
   {
-    q: "Do I need digital experience to join?",
-    a: "No. I work with people starting from zero as well as people who already have revenue but are stuck at the same level. The diagnosis is fully adapted to your level and your specific context. It's not a generic script.",
+    q: "Preciso ter experiência no digital pra participar?",
+    a: "Não. Eu trabalho tanto com quem está começando do zero quanto com quem já fatura mas está travado no mesmo nível. O diagnóstico é totalmente adaptado ao seu nível e ao seu contexto específico. Não é um roteiro genérico.",
   },
   {
-    q: "Does this work for my niche?",
-    a: "The method was developed for online sales operations: digital products, e-commerce, services, info products. If you sell online and use paid traffic — or want to — the structure around system, ROI, and predictability applies to your business regardless of niche.",
+    q: "Isso funciona pro meu nicho?",
+    a: "O método foi desenvolvido pra operações de venda online: produtos digitais, e-commerce, serviços, infoprodutos. Se você vende online e usa tráfego pago — ou quer usar — a estrutura em torno de sistema, ROI e previsibilidade se aplica ao seu negócio independente do nicho.",
   },
   {
-    q: "How soon can I see results?",
-    a: "It depends on how committed you are to applying it. Mentees who applied the method consistently saw results within the first 2 to 3 weeks. Arthur hit R$1,000/day after 7 days of coaching. Every case is unique, but results always come from implementation, not intention.",
+    q: "Em quanto tempo eu vejo resultado?",
+    a: "Depende do quanto você se compromete a aplicar. Mentorados que aplicaram o método de forma consistente viram resultado nas primeiras 2 a 3 semanas. O Arthur bateu R$1.000/dia depois de 7 dias de acompanhamento. Cada caso é único, mas resultado sempre vem de execução, não de intenção.",
   },
   {
-    q: "How long after the diagnostic do you reach out?",
-    a: "Within 2 hours of submitting the diagnostic, you'll get a message to confirm the date and time of the call. Scheduling is done directly, with no middlemen.",
+    q: "Quanto tempo depois do diagnóstico você entra em contato?",
+    a: "Em até 2 horas depois de enviar o diagnóstico, você recebe uma mensagem pra confirmar a data e o horário da call. O agendamento é direto, sem intermediários.",
   },
 ];
 
@@ -38,14 +38,14 @@ export function FaqAccordion() {
     <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto mb-2 max-w-[560px] text-center">
         <Reveal>
-          <SectionTag>No doubts before deciding</SectionTag>
+          <SectionTag>Nenhuma dúvida antes de decidir</SectionTag>
         </Reveal>
         <Reveal delay={1}>
           <h2
             className="font-grotesk font-bold leading-[1.05] mb-5"
             style={{ fontSize: "var(--fs-h2)", letterSpacing: "var(--ls-h2)" }}
           >
-            Frequently <span className="text-3d-gradient">asked questions</span>
+            Perguntas <span className="text-3d-gradient">frequentes</span>
           </h2>
         </Reveal>
       </div>

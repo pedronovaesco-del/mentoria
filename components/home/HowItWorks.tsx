@@ -6,23 +6,23 @@ import { SectionTag } from "@/components/ui/SectionText";
 const STEPS = [
   {
     n: 1,
-    title: "Take the diagnostic",
-    body: "4 quick questions about where you are right now. Less than 2 minutes, and it's what lets me walk into the call already knowing where you're losing money.",
+    title: "Faça o diagnóstico",
+    body: "4 perguntas rápidas sobre onde você está agora. Menos de 2 minutos, e é isso que me permite chegar na call já sabendo onde você está perdendo dinheiro.",
   },
   {
     n: 2,
-    title: "We schedule your call",
+    title: "A gente agenda sua call",
     body: (
       <>
-        I&apos;ll reach out within <strong className="text-white">2 hours</strong> to confirm
-        the best time. 45 minutes, 100% online, with your operation open on screen.
+        Eu te chamo em até <strong className="text-white">2 horas</strong> pra confirmar o
+        melhor horário. 45 minutos, 100% online, com sua operação aberta na tela.
       </>
     ),
   },
   {
     n: 3,
-    title: "Walk away with the plan in hand",
-    body: "You end the call knowing exactly what to do the next day: with clarity, a defined priority, and without depending on another course to get started.",
+    title: "Saia com o plano em mãos",
+    body: "Você termina a call sabendo exatamente o que fazer no dia seguinte: com clareza, prioridade definida, e sem depender de mais um curso pra começar.",
   },
 ];
 
@@ -32,22 +32,22 @@ export function HowItWorks() {
       <div className="mx-auto max-w-(--container-w)">
         <div className="mx-auto max-w-[560px] text-center">
           <Reveal>
-            <SectionTag>The process</SectionTag>
+            <SectionTag>O processo</SectionTag>
           </Reveal>
           <Reveal delay={1}>
             <h2
               className="font-grotesk font-bold leading-[1.05] mb-5"
               style={{ fontSize: "var(--fs-h2)", letterSpacing: "var(--ls-h2)" }}
             >
-              In 3 steps you go from
+              Em 3 passos você sai do
               <br />
-              <span className="text-3d-gradient">guesswork to a plan</span>
+              <span className="text-3d-gradient">achismo pra um plano</span>
             </h2>
           </Reveal>
           <Reveal delay={2}>
             <p className="mx-auto text-body-color" style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-              No fluff. No hard sell. In less than a week you trade &quot;try again&quot; for
-              a clear path forward.
+              Sem enrolação. Sem venda forçada. Em menos de uma semana você troca
+              &quot;tentar de novo&quot; por um caminho claro pra seguir.
             </p>
           </Reveal>
         </div>
@@ -76,15 +76,15 @@ export function HowItWorks() {
         <Reveal delay={3}>
           <Glass className="mx-auto mt-14 max-w-(--prose-w) p-11 text-center">
             <p className="mb-[18px] text-[15px] leading-[1.7] text-white/50">
-              You&apos;ve already seen the whole process. All that&apos;s left is{" "}
-              <strong className="text-white">step 1</strong>.
+              Você já viu o processo todo. Só falta o{" "}
+              <strong className="text-white">passo 1</strong>.
             </p>
             <CTAButton href="/quiz" className="!text-[15px] !py-4 !px-8">
-              Take the diagnostic now (2 min)
+              Fazer o diagnóstico agora (2 min)
             </CTAButton>
             <p className="mt-[18px] text-[13px] text-white/40">
-              No cost, no commitment. Worst case, you walk away with clarity you didn&apos;t
-              have, for free.
+              Sem custo, sem compromisso. No pior dos casos, você sai com uma clareza que não
+              tinha, de graça.
             </p>
           </Glass>
         </Reveal>

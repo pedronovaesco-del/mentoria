@@ -6,15 +6,15 @@ export function ProblemSection() {
     <section className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--prose-w)">
         <Reveal>
-          <SectionTitle>The problem nobody had the guts to tell you</SectionTitle>
+          <SectionTitle>O problema que ninguém teve coragem de te contar</SectionTitle>
         </Reveal>
 
         <Reveal delay={1}>
           <p className="max-w-full text-body-color" style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-            You don&apos;t have an effort problem. You work harder than most: you wake up
-            thinking about campaigns, fall asleep scrolling the feed for the next
-            &quot;insight,&quot; and you&apos;ve already lost a weekend tweaking an ad that
-            was still in the red on Sunday night.
+            Você não tem um problema de esforço. Você trabalha mais do que a maioria: acorda
+            pensando em campanha, dorme rolando o feed atrás do próximo &quot;insight&quot;, e
+            já perdeu um fim de semana inteiro ajustando um anúncio que continuava no vermelho
+            no domingo à noite.
           </p>
         </Reveal>
         <Reveal delay={1}>
@@ -22,9 +22,9 @@ export function ProblemSection() {
             className="mt-[18px] max-w-full text-body-color"
             style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}
           >
-            Your problem is crueler than that:{" "}
+            Seu problema é mais cruel que isso:{" "}
             <strong className="text-white">
-              you&apos;re doing everything &quot;right,&quot; and you still aren&apos;t moving forward.
+              você está fazendo tudo &quot;certo&quot;, e mesmo assim não sai do lugar.
             </strong>
           </p>
         </Reveal>
@@ -33,12 +33,12 @@ export function ProblemSection() {
             className="mt-[18px] max-w-full text-body-color"
             style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}
           >
-            You swap the creative… and{" "}
-            <strong className="font-bold text-blue-light">CPA keeps climbing</strong>. You
-            change the audience… and{" "}
-            <strong className="font-bold text-blue-light">ROI swings from 3 to 0.8</strong> with
-            no explanation. You raise the budget to scale… and instead of growing with it,{" "}
-            <strong className="font-bold text-blue-light">results collapse</strong>.
+            Você troca o criativo… e{" "}
+            <strong className="font-bold text-blue-light">o CPA continua subindo</strong>. Você
+            muda o público… e{" "}
+            <strong className="font-bold text-blue-light">o ROI oscila de 3 pra 0,8</strong> sem
+            nenhuma explicação. Você aumenta a verba pra escalar… e em vez de crescer junto,{" "}
+            <strong className="font-bold text-blue-light">os resultados desabam</strong>.
           </p>
         </Reveal>
         <Reveal delay={2}>
@@ -46,10 +46,10 @@ export function ProblemSection() {
             className="mt-[18px] max-w-full text-body-color"
             style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}
           >
-            And then that feeling hits — the one you don&apos;t tell anyone about: that maybe
-            the problem is <em>you</em>. That everyone else found out a secret nobody passed
-            on to you. That you&apos;re always one campaign away from &quot;finally
-            clicking,&quot; but that campaign never comes.
+            E aí bate aquela sensação — a que você não conta pra ninguém: que talvez o problema
+            seja <em>você</em>. Que todo mundo descobriu um segredo que ninguém te passou. Que
+            você está sempre a uma campanha de distância de &quot;finalmente dar
+            certo&quot;, mas essa campanha nunca chega.
           </p>
         </Reveal>
         <Reveal delay={3}>
@@ -58,25 +58,24 @@ export function ProblemSection() {
             style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}
           >
             <strong className="text-white">
-              It&apos;s not you. It&apos;s the structure behind your operation, and it&apos;s invisible from the inside.
+              Não é você. É a estrutura por trás da sua operação, e ela é invisível de dentro.
             </strong>{" "}
-            Nobody can read the label on the jar while they&apos;re inside it. That&apos;s why
-            you can be smart, dedicated, well-read… and still be stuck on the exact same number
-            for months.
+            Ninguém consegue ler o rótulo do pote estando dentro dele. É por isso que dá pra ser
+            inteligente, dedicado, estudado… e mesmo assim ficar travado exatamente no mesmo
+            número por meses.
           </p>
         </Reveal>
 
         <Reveal delay={4}>
           <HookBox>
             <p>
-              And that invisible structure comes at a steep price:{" "}
+              E essa estrutura invisível cobra um preço alto:{" "}
               <strong>
-                8 out of 10 operations that &quot;spend more on traffic&quot; are actually
-                just scaling their losses
+                8 em cada 10 operações que &quot;gastam mais em tráfego&quot; estão, na
+                verdade, só escalando o prejuízo
               </strong>
-              , and there&apos;s a single metric that separates those who scale from those who
-              just burn budget.{" "}
-              <em>(scroll to find out ↓)</em>
+              , e existe uma única métrica que separa quem escala de quem só queima verba.{" "}
+              <em>(role pra descobrir ↓)</em>
             </p>
           </HookBox>
         </Reveal>

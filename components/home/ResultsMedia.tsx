@@ -6,27 +6,27 @@ import { SectionTag } from "@/components/ui/SectionText";
 const RESULTS = [
   {
     src: "/images/resultados/resultado-dashboard.jpeg",
-    alt: "Utmify dashboard showing R$305K in revenue and 4.83 ROI",
-    caption: "Net revenue of R$305,676 · ROI 4.83",
-    explain: "ROI = return on ad spend. Market average: 1.5–2x",
+    alt: "Dashboard da Utmify mostrando R$305 mil em faturamento e ROI de 4,83",
+    caption: "Faturamento líquido de R$305.676 · ROI 4,83",
+    explain: "ROI = retorno sobre o valor investido em tráfego. Média de mercado: 1,5–2x",
   },
   {
     src: "/images/resultados/resultado-roas.jpeg",
-    alt: "ROAS table for campaigns in Ads Manager",
-    caption: "Campaigns with consistent ROAS above 3",
-    explain: "ROAS = revenue ÷ ad spend. Above 3 is considered excellent",
+    alt: "Tabela de ROAS das campanhas no Ads Manager",
+    caption: "Campanhas com ROAS consistente acima de 3",
+    explain: "ROAS = faturamento ÷ valor investido em tráfego. Acima de 3 é considerado excelente",
   },
   {
     src: "/images/resultados/callmentoria.jpg",
-    alt: "Live 1-on-1 mentoring call",
-    caption: "Live 1-on-1 support with mentees",
-    explain: "Sessions recorded with permission: real support in real time",
+    alt: "Call de mentoria individual ao vivo",
+    caption: "Suporte individual ao vivo com mentorados",
+    explain: "Sessões gravadas com permissão: suporte real em tempo real",
   },
   {
     src: "/images/resultados/resultadosutm.jpg",
-    alt: "Pedro Novaes' real Utmify dashboard, R$6,393.00 in revenue that day",
-    caption: "R$6,393.00 in net revenue in a single day",
-    explain: "Pedro Novaes' real dashboard, unedited",
+    alt: "Dashboard real da Utmify do Pedro Novaes, R$6.393,00 em faturamento naquele dia",
+    caption: "R$6.393,00 em faturamento líquido em um único dia",
+    explain: "Dashboard real do Pedro Novaes, sem edição",
   },
 ];
 
@@ -35,21 +35,21 @@ export function ResultsMedia() {
     <section id="resultados" className="px-[var(--edge-pad)] py-[var(--section-spacing-y)]">
       <div className="mx-auto max-w-(--container-w)">
         <Reveal>
-          <SectionTag>Proof of performance</SectionTag>
+          <SectionTag>Prova de performance</SectionTag>
         </Reveal>
         <Reveal delay={1}>
           <h2
             className="max-w-(--prose-w) font-grotesk font-bold leading-[1.05] mb-5"
             style={{ fontSize: "var(--fs-h2)", letterSpacing: "var(--ls-h2)" }}
           >
-            <span className="text-3d-gradient">Real, verifiable results</span> with date,
-            screenshot, and context
+            <span className="text-3d-gradient">Resultados reais e verificáveis</span> com data,
+            print e contexto
           </h2>
         </Reveal>
         <Reveal delay={2}>
           <p className="max-w-(--prose-w) text-body-color" style={{ fontSize: "var(--fs-body)", lineHeight: "var(--lh-body)" }}>
-            Dashboards, campaign metrics, and live tracking. No theatrics, no suspiciously
-            round numbers. Just what can be audited.
+            Dashboards, métricas de campanha e acompanhamento ao vivo. Sem teatro, sem número
+            redondo suspeito. Só o que dá pra auditar.
           </p>
         </Reveal>
 

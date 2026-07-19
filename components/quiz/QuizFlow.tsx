@@ -140,7 +140,7 @@ export function QuizFlow() {
 
     if (step === 2) {
       if (quiz.name.trim().length < 3) {
-        setErrors({ name: "Enter your full name." });
+        setErrors({ name: "Digite seu nome completo." });
         return;
       }
       advance();
@@ -149,7 +149,7 @@ export function QuizFlow() {
 
     if (step === 3) {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(quiz.email.trim())) {
-        setErrors({ email: "Enter a valid email." });
+        setErrors({ email: "Digite um e-mail válido." });
         return;
       }
       advance();
@@ -158,7 +158,7 @@ export function QuizFlow() {
 
     // step === 4: telefone
     if (phoneDigits.length < requiredDigits) {
-      setErrors({ phone: "Incomplete number for the selected country." });
+      setErrors({ phone: "Número incompleto para o país selecionado." });
       return;
     }
     const nextState = advance();
@@ -256,33 +256,32 @@ export function QuizFlow() {
         <div className="mb-8 text-center">
           <div className="mb-5 inline-flex items-center gap-1.5 rounded-pill border border-blue/28 bg-blue/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[1.2px] text-blue-light">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-success" />
-            Free diagnosis
+            Diagnóstico gratuito
           </div>
           <h1
             className="mb-3 font-grotesk font-bold leading-[1.1]"
             style={{ fontSize: "clamp(26px,5vw,40px)", letterSpacing: "-1.5px" }}
           >
-            This quiz{" "}
+            Esse quiz{" "}
             <span className="bg-gradient-to-br from-blue-light via-blue to-blue-deep bg-clip-text text-transparent">
-              isn&apos;t for everyone
+              não é pra todo mundo
             </span>
           </h1>
           <div className="mx-auto max-w-[460px] space-y-3 text-base leading-[1.7] text-white/50">
             <p>
-              It was made for people tired of spinning their wheels online — testing formula
-              after formula, consuming free content, and still watching the month end without
-              predictable revenue.
+              Ele foi feito pra quem tá cansado de rodar em círculos no digital — testando
+              fórmula atrás de fórmula, consumindo conteúdo gratuito e ainda assim vendo o mês
+              acabar sem faturamento previsível.
             </p>
             <p>
-              In less than 2 minutes, you&apos;ll answer a few questions that map out exactly
-              where you are today and what&apos;s holding you back from getting where you
-              want. At the end, I&apos;ll know if it makes sense for us to talk — and
-              you&apos;ll walk away with clarity on your next step, whether you go ahead or
-              not.
+              Em menos de 2 minutos, você vai responder algumas perguntas que mapeiam
+              exatamente onde você está hoje e o que te trava de chegar onde quer. No final,
+              eu vou saber se faz sentido a gente conversar — e você vai sair com clareza do
+              seu próximo passo, seja qual for a decisão.
             </p>
             <p className="font-medium text-white/70">
-              No fluff. No right or wrong answer. Just the truth about where you are.
-              👉 Answer honestly — you&apos;re the one who&apos;ll reap the results. Let&apos;s go?
+              Sem enrolação. Sem resposta certa ou errada. Só a verdade sobre onde você está.
+              👉 Responda com honestidade — quem colhe os resultados é você. Bora?
             </p>
           </div>
         </div>
@@ -303,7 +302,7 @@ export function QuizFlow() {
                 transition={{ duration: 0.35, ease: EASE_ENTRANCE }}
               >
                 <button type="button" onClick={() => advance()} className={continueBtnClass}>
-                  Let&apos;s go
+                  Vamos lá
                 </button>
               </motion.div>
             ) : step === 2 ? (
@@ -320,20 +319,20 @@ export function QuizFlow() {
                     className="mb-4 font-grotesk font-bold leading-[1.3]"
                     style={{ fontSize: "clamp(19px,3.5vw,24px)" }}
                   >
-                    To start, what&apos;s your name?
+                    Pra começar, qual é o seu nome?
                   </div>
                   <input
                     autoFocus
                     type="text"
                     value={quiz.name}
                     onChange={(e) => setQuiz((q) => ({ ...q, name: e.target.value }))}
-                    placeholder="First and last name"
+                    placeholder="Nome e sobrenome"
                     autoComplete="name"
                     className={fieldInputClass}
                   />
                   <span className="mt-[-2px] block min-h-4 text-xs text-danger">{errors.name}</span>
                   <button type="submit" className={continueBtnClass}>
-                    Continue
+                    Continuar
                   </button>
                 </form>
               </motion.div>
@@ -351,23 +350,23 @@ export function QuizFlow() {
                     className="font-grotesk font-bold leading-[1.3]"
                     style={{ fontSize: "clamp(19px,3.5vw,24px)" }}
                   >
-                    What&apos;s your best email?
+                    Qual é o seu melhor e-mail?
                   </div>
                   <p className="mb-4 text-sm text-white/45">
-                    That&apos;s where I&apos;ll send your diagnosis and materials.
+                    É pra lá que vou te mandar o diagnóstico e os materiais.
                   </p>
                   <input
                     autoFocus
                     type="email"
                     value={quiz.email}
                     onChange={(e) => setQuiz((q) => ({ ...q, email: e.target.value }))}
-                    placeholder="you@email.com"
+                    placeholder="voce@email.com"
                     autoComplete="email"
                     className={fieldInputClass}
                   />
                   <span className="mt-[-2px] block min-h-4 text-xs text-danger">{errors.email}</span>
                   <button type="submit" className={continueBtnClass}>
-                    Continue
+                    Continuar
                   </button>
                 </form>
               </motion.div>
@@ -385,10 +384,10 @@ export function QuizFlow() {
                     className="font-grotesk font-bold leading-[1.3]"
                     style={{ fontSize: "clamp(19px,3.5vw,24px)" }}
                   >
-                    What&apos;s your WhatsApp number?
+                    Qual é o seu número de WhatsApp?
                   </div>
                   <p className="mb-4 text-sm text-white/45">
-                    This is how we unlock your next step.
+                    É assim que a gente libera seu próximo passo.
                   </p>
                   <PhoneInput
                     value={quiz.phone}
@@ -398,7 +397,7 @@ export function QuizFlow() {
                   />
                   <span className="mt-[-2px] block min-h-4 text-xs text-danger">{errors.phone}</span>
                   <button type="submit" className={continueBtnClass}>
-                    Continue
+                    Continuar
                   </button>
                 </form>
               </motion.div>
@@ -467,7 +466,7 @@ export function QuizFlow() {
                 animate={{ opacity: 1 }}
                 className="quiz-step py-10 text-center text-[15px] text-white/40"
               >
-                Processing your diagnosis…
+                Processando seu diagnóstico…
               </motion.div>
             )}
           </AnimatePresence>
