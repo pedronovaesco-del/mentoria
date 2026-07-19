@@ -8,6 +8,7 @@ import { logFollowup, toggleEmailMarketing } from "@/lib/actions/crm";
 import { daysAgo } from "@/lib/crm/scoring";
 import { CallScheduleModal } from "./CallScheduleModal";
 import { CallsList } from "./CallsList";
+import { ImportLeadsModal } from "./ImportLeadsModal";
 import { LeadCard } from "./LeadCard";
 import { LeadFormModal } from "./LeadFormModal";
 import type { CrmCall, CrmCompany, CrmEtapa, CrmFollowup, CrmLead, CrmPrioridade } from "@/types/database";
@@ -60,6 +61,7 @@ export function CrmDashboard({ companies, initialCompanyId, initialLeads, initia
 
   const [leadModal, setLeadModal] = useState<{ open: boolean; lead: CrmLead | null; followups: CrmFollowup[] } | null>(null);
   const [callModal, setCallModal] = useState<{ open: boolean; call: CrmCall | null; defaultLeadId: string | null } | null>(null);
+  const [importModalOpen, setImportModalOpen] = useState(false);
 
   function showToast(msg: string, ok: boolean) {
     setToast({ msg, ok });
@@ -118,6 +120,12 @@ export function CrmDashboard({ companies, initialCompanyId, initialLeads, initia
     setCallModal(null);
     await refreshCalls();
     showToast("Agendamento salvo!", true);
+  }
+
+  async function handleImported(result: { inserted: number; updated: number }) {
+    setImportModalOpen(false);
+    await refreshLeads();
+    showToast(`Importação concluída: ${result.inserted} novos, ${result.updated} atualizados.`, true);
   }
 
   const responsavelOptions = useMemo(
@@ -218,6 +226,13 @@ export function CrmDashboard({ companies, initialCompanyId, initialLeads, initia
         <div className="flex items-center gap-2">
           <button onClick={() => openLeadModal(null)} className="rounded-pill border border-white/12 px-3.5 py-2 text-[13px] font-semibold text-white/75">
             + Novo lead
+          </button>
+          <button
+            onClick={() => setImportModalOpen(true)}
+            disabled={!companyId}
+            className="rounded-pill border border-white/12 px-3.5 py-2 text-[13px] font-semibold text-white/75 disabled:opacity-40"
+          >
+            📥 Importar planilha
           </button>
           <button
             onClick={() => setCallModal({ open: true, call: null, defaultLeadId: null })}
@@ -390,6 +405,9 @@ export function CrmDashboard({ companies, initialCompanyId, initialLeads, initia
           onClose={() => setCallModal(null)}
           onSaved={handleCallSaved}
         />
+      )}
+      {importModalOpen && companyId && (
+        <ImportLeadsModal companyId={companyId} leads={leads} onClose={() => setImportModalOpen(false)} onImported={handleImported} />
       )}
 
       {toast && (

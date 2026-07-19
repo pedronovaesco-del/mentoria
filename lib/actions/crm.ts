@@ -153,6 +153,111 @@ export async function quickCallStatus(callId: string, status: CrmCallStatus) {
   revalidatePath("/crm");
 }
 
+export interface ImportRowPayload {
+  name: string;
+  whatsappDisplay: string | null;
+  email: string | null;
+  objetivo: string | null;
+  faturamento: string | null;
+  orcamento: string | null;
+  meta3Meses: string | null;
+  desafio: string | null;
+  nivelDigital: string | null;
+  tempoDia: string | null;
+}
+
+export type BulkImportResult =
+  | { ok: true; inserted: number; updated: number }
+  | { ok: false; error: string };
+
+/**
+ * Reimport de planilha (Marco 8 tinha deixado essa feature de fora
+ * deliberadamente). Casa cada linha com um lead existente pelo mesmo
+ * dedup_key usado em upsertLead (whatsapp normalizado, ou nome como
+ * fallback) -- linhas repetidas dentro do proprio arquivo colapsam antes
+ * de bater no banco, e linhas que já existem em crm_leads são
+ * atualizadas em vez de duplicadas. Etapa/prioridade/responsavel/notas
+ * de leads já existentes não são tocados: só os dados de qualificação e
+ * contato vindos da planilha.
+ */
+export async function bulkImportLeads(companyId: string, rows: ImportRowPayload[]): Promise<BulkImportResult> {
+  const supabase = await createClient();
+
+  const { data: existing, error: fetchError } = await supabase
+    .from("crm_leads")
+    .select("id, dedup_key")
+    .eq("company_id", companyId);
+  if (fetchError) return { ok: false as const, error: fetchError.message };
+
+  const existingByKey = new Map((existing || []).map((l) => [l.dedup_key as string, l.id as string]));
+
+  const collapsed = new Map<string, ImportRowPayload>();
+  for (const row of rows) {
+    if (!row.name.trim()) continue;
+    const dedupKey = normalizePhone(row.whatsappDisplay) || `name:${row.name.trim().toLowerCase()}`;
+    collapsed.set(dedupKey, row);
+  }
+
+  const toInsert: Record<string, unknown>[] = [];
+  const updates: { id: string; payload: Record<string, unknown> }[] = [];
+
+  for (const [dedupKey, row] of collapsed) {
+    const whatsapp = normalizePhone(row.whatsappDisplay);
+    const scoreResult = computeScore({
+      objetivo: row.objetivo,
+      faturamento: row.faturamento,
+      orcamento: row.orcamento,
+      meta_3_meses: row.meta3Meses,
+      desafio: row.desafio,
+      nivel_digital: row.nivelDigital,
+      tempo_dia: row.tempoDia,
+    });
+
+    const qualificationPayload = {
+      name: row.name.trim(),
+      whatsapp,
+      whatsapp_display: row.whatsappDisplay,
+      email: row.email,
+      objetivo: row.objetivo,
+      faturamento: row.faturamento,
+      orcamento: row.orcamento,
+      meta_3_meses: row.meta3Meses,
+      desafio: row.desafio,
+      nivel_digital: row.nivelDigital,
+      tempo_dia: row.tempoDia,
+      score: scoreResult.score,
+    };
+
+    const existingId = existingByKey.get(dedupKey);
+    if (existingId) {
+      updates.push({ id: existingId, payload: qualificationPayload });
+    } else {
+      toInsert.push({
+        ...qualificationPayload,
+        company_id: companyId,
+        dedup_key: dedupKey,
+        etapa: "Novo",
+        prioridade: scoreResult.label,
+        data_entrada: new Date().toISOString().slice(0, 10),
+      });
+    }
+  }
+
+  if (toInsert.length) {
+    const { error } = await supabase.from("crm_leads").insert(toInsert);
+    if (error) return { ok: false as const, error: error.message };
+  }
+
+  if (updates.length) {
+    const results = await Promise.all(updates.map(({ id, payload }) => supabase.from("crm_leads").update(payload).eq("id", id)));
+    const failed = results.find((r) => r.error);
+    if (failed?.error) return { ok: false as const, error: failed.error.message };
+  }
+
+  revalidatePath("/crm");
+  return { ok: true as const, inserted: toInsert.length, updated: updates.length };
+}
+
 export async function createCompany(name: string) {
   const supabase = await createClient();
   const { data, error } = await supabase.from("crm_companies").insert({ name }).select().single();
