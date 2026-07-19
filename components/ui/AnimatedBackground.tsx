@@ -1,3 +1,7 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 /**
  * Fixed ambient background behind all content (negative z-index,
  * pointer-events: none — never overlaps or blocks clicks).
@@ -6,8 +10,14 @@
  * straight back-and-forth) via CSS transforms only — no JS, no canvas.
  * `prefers-reduced-motion` is handled globally in globals.css
  * (animation-duration is zeroed for every element).
+ *
+ * Fica desligado em /crm* -- ferramenta interna de pipeline, fundo liso
+ * (var(--ink), já definido em globals.css) em vez do glow de marketing.
  */
 export function AnimatedBackground() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/crm")) return null;
+
   return (
     <div aria-hidden="true" className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <span
