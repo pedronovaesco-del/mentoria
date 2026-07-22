@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Space_Grotesk } from "next/font/google";
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
+import { ParticlesFX } from "@/components/ui/ParticlesFX";
 import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 import "./globals.css";
 
@@ -45,6 +46,7 @@ export default function RootLayout({
     >
       <body className="isolate flex min-h-dvh flex-col antialiased font-sans">
         <AnimatedBackground />
+        <ParticlesFX />
         <ScrollProgressBar />
         {children}
       </body>

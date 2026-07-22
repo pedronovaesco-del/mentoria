@@ -75,8 +75,11 @@
      waypoints em vez de ida-e-volta reta) */
   --animate-wave-a: waveA 24s ease-in-out infinite;
   --animate-wave-b: waveB 32s ease-in-out infinite;
+  --animate-wave-c: waveC 28s ease-in-out infinite;
   --animate-btn-pulse: btnPulse 3.2s ease-in-out infinite;
   --animate-btn-shine: btnShine 5s ease-in-out infinite;
+  --animate-particle-a: particleA 9s ease-in-out infinite;
+  --animate-particle-b: particleB 10s ease-in-out infinite;
 }
 
 @keyframes waveA {
@@ -108,6 +111,38 @@
   }
   100% {
     transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+@keyframes waveC {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  30% {
+    transform: translate3d(-6%, 8%, 0) scale(1.1);
+  }
+  60% {
+    transform: translate3d(8%, -5%, 0) scale(0.92);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+@keyframes particleA {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6px, -12px, 0) scale(1.4);
+  }
+}
+@keyframes particleB {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-9px, 9px, 0) scale(0.7);
   }
 }
 @keyframes btnPulse {
